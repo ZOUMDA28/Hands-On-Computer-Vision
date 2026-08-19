@@ -6,12 +6,6 @@
 [![Jupyter](https://img.shields.io/badge/Jupyter-Notebook-F37726?logo=jupyter)](https://jupyter.org/)
 [![License](https://img.shields.io/badge/License-CC%20BY--NC--SA%204.0-00A98F)](https://creativecommons.org/licenses/by-nc-sa/4.0/)
 
-## 🌐 在线预览
-
-> **访问我们的交互式学习网站**：[https://your-github-username.github.io/Hands-On-Computer-Vision/](https://your-github-username.github.io/Hands-On-Computer-Vision/)
-
-网站提供了完整的课程内容浏览、Notebook 预览、一键 Colab 运行等功能，支持深色/浅色主题切换，适配桌面端和移动端。
-
 ## 🚀 一键运行（Google Colab）
 
 > **无需配置环境，点击即可在云端运行！**
