@@ -6,6 +6,56 @@
 [![Jupyter](https://img.shields.io/badge/Jupyter-Notebook-F37726?logo=jupyter)](https://jupyter.org/)
 [![License](https://img.shields.io/badge/License-CC%20BY--NC--SA%204.0-00A98F)](https://creativecommons.org/licenses/by-nc-sa/4.0/)
 
+## 🌐 在线预览
+
+> **访问我们的交互式学习网站**：[https://your-github-username.github.io/Hands-On-Computer-Vision/](https://your-github-username.github.io/Hands-On-Computer-Vision/)
+
+网站提供了完整的课程内容浏览、Notebook 预览、一键 Colab 运行等功能，支持深色/浅色主题切换，适配桌面端和移动端。
+
+## 🚀 一键运行（Google Colab）
+
+> **无需配置环境，点击即可在云端运行！**
+
+点击下面的徽章，直接在 Google Colab 中打开对应的 Notebook：
+
+### 第一部分：图像处理基础
+
+| 章节 | Colab 链接 |
+|------|-----------|
+| 1. 数字图像的获取和表示 | [![Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/your-github-username/Hands-On-Computer-Vision/blob/main/图像处理基础/数字图像的获取和表示/编程实践.ipynb) |
+| 2. 颜色空间的转换 | [![Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/your-github-username/Hands-On-Computer-Vision/blob/main/图像处理基础/颜色空间的转换/编程实践.ipynb) |
+| 3. 基于直方图统计的处理 | [![Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/your-github-username/Hands-On-Computer-Vision/blob/main/图像处理基础/基于直方图统计的处理/编程实践.ipynb) |
+| 4. 图像滤波 | [![Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/your-github-username/Hands-On-Computer-Vision/blob/main/图像处理基础/图像滤波/编程实践.ipynb) |
+| 5. 特征提取 | [![Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/your-github-username/Hands-On-Computer-Vision/blob/main/图像处理基础/特征提取/编程实践.ipynb) |
+| 6. 几何变换 | [![Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/your-github-username/Hands-On-Computer-Vision/blob/main/图像处理基础/几何变换/编程实践.ipynb) |
+
+### 第二部分：最优化算法与立体视觉重建
+
+| 章节 | Colab 链接 |
+|------|-----------|
+| 7. 图像拼接模型 | [![Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/your-github-username/Hands-On-Computer-Vision/blob/main/最优化算法与立体视觉重建/图像拼接模型/编程实践.ipynb) |
+| 8. 相机参数标定 | [![Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/your-github-username/Hands-On-Computer-Vision/blob/main/最优化算法与立体视觉重建/相机参数标定/编程实践.ipynb) |
+| 9. 立体视觉点云重建 | [![Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/your-github-username/Hands-On-Computer-Vision/blob/main/最优化算法与立体视觉重建/立体视觉点云重建/编程实践.ipynb) |
+
+### 第三部分：EXTRA 进阶章节
+
+| 章节 | Colab 链接 |
+|------|-----------|
+| 1. 卷积 | [![Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/your-github-username/Hands-On-Computer-Vision/blob/main/EXTRA/卷积/编程实践_补充.ipynb) |
+| 2. 模板匹配 | [![Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/your-github-username/Hands-On-Computer-Vision/blob/main/EXTRA/模板匹配/编程实践_补充.ipynb) |
+| 3. 图像分割 | [![Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/your-github-username/Hands-On-Computer-Vision/blob/main/EXTRA/图像分割/编程实践_补充.ipynb) |
+| 4. 图像分类 | [![Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/your-github-username/Hands-On-Computer-Vision/blob/main/EXTRA/图像分类/编程实践_补充.ipynb) |
+| 5. 语义分割 | [![Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/your-github-username/Hands-On-Computer-Vision/blob/main/EXTRA/语义分割/编程实践_补充.ipynb) |
+| 6. 目标检测 | [![Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/your-github-username/Hands-On-Computer-Vision/blob/main/EXTRA/目标检测/编程实践_补充.ipynb) |
+| 7. 实例分割 | [![Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/your-github-username/Hands-On-Computer-Vision/blob/main/EXTRA/实例分割/编程实践_补充.ipynb) |
+| 8. 人体姿态估计 | [![Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/your-github-username/Hands-On-Computer-Vision/blob/main/EXTRA/人体姿态估计/编程实践_补充.ipynb) |
+| 9. 动作识别 | [![Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/your-github-username/Hands-On-Computer-Vision/blob/main/EXTRA/动作识别/编程实践_补充.ipynb) |
+| 10. 光流和运动场 | [![Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/your-github-username/Hands-On-Computer-Vision/blob/main/EXTRA/光流和运动场/编程实践_补充.ipynb) |
+
+> **💡 提示**：将 `your-github-username` 替换为你的实际 GitHub 用户名即可。
+
+---
+
 本项目围绕计算机视觉核心知识体系，提供从像素基础到立体视觉重建的完整编程实践教程。每个章节均包含**概念详解**、**手写代码实现**和**可视化对比**，帮助你真正吃透每一个算法。
 
 > **核心理念**：能手写的不调库，能推导的不跳过。从零实现 Gamma 校正、颜色空间转换、最小二乘、Levenberg-Marquardt 优化等关键算法。

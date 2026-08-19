@@ -1,0 +1,59 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.egg-info/
+dist/
+build/
+.eggs/
+
+# Virtual environments
+venv/
+env/
+.venv/
+.env
+
+# Jupyter
+.ipynb_checkpoints/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+
+# Node
+node_modules/
+package-lock.json
+yarn.lock
+
+# Output images generated at runtime (not in git)
+# These are generated when running notebooks
+# *.jpg (only generated ones, not source images)
+# *.png (only generated ones)
+
+# Temporary files
+tmp/
+temp/
+*.tmp
+*.bak
+*.log
+
+# Environment files
+.env.local
+.env.*.local
+
+# Conda
+conda-meta/
+
+# Website build cache
+.cache/
+.parcel-cache/
