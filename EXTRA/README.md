@@ -1,6 +1,6 @@
 # EXTRA 进阶章节
 
-本章节包含 10 个进阶主题的编程实践内容，覆盖传统图像处理算法与深度学习前沿方法。
+本章节包含 10 个进阶主题的编程实践内容，覆盖传统图像处理算法与深度学习前沿方法。已补充与后续待补充的专题内容，其图片、公式与代码内容主要参考 Hands-on-CV，即上海交通大学《动手学习计算机视觉》相关公开教学资料。
 
 ## 📚 章节列表
 
@@ -19,7 +19,7 @@
 
 ## ✨ 每章特色
 
-每个章节的 `编程实践_补充.ipynb` 均包含：
+每个章节的 `practice_extra.ipynb` 均包含：
 
 - **📖 概念讲解**：算法原理与数学推导
 - **💻 手写实现**：从零实现核心算法（如卷积核运算、模板匹配）
@@ -53,30 +53,30 @@ pip install torch torchvision
 EXTRA/
 ├── 卷积/
 │   ├── lena.jpeg              # 测试图像
-│   └── 编程实践_补充.ipynb
+│   └── practice_extra.ipynb
 ├── 模板匹配/
 │   ├── img.png
 │   ├── lena_small.png
 │   ├── lena_tri.jpg
 │   ├── temp.png
-│   └── 编程实践_补充.ipynb
+│   └── practice_extra.ipynb
 ├── 图像分割/
 │   ├── segmentation.jpeg
-│   └── 编程实践_补充.ipynb
+│   └── practice_extra.ipynb
 ├── 图像分类/
-│   └── 编程实践_补充.ipynb
+│   └── practice_extra.ipynb
 ├── 语义分割/
-│   └── 编程实践_补充.ipynb
+│   └── practice_extra.ipynb
 ├── 目标检测/
-│   └── 编程实践_补充.ipynb
+│   └── practice_extra.ipynb
 ├── 实例分割/
-│   └── 编程实践_补充.ipynb
+│   └── practice_extra.ipynb
 ├── 人体姿态估计/
-│   └── 编程实践_补充.ipynb
+│   └── practice_extra.ipynb
 ├── 动作识别/
-│   └── 编程实践_补充.ipynb
+│   └── practice_extra.ipynb
 └── 光流和运动场/
-    └── 编程实践_补充.ipynb
+    └── practice_extra.ipynb
 ```
 
 ## ⚠️ 注意事项
