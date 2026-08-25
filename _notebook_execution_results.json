@@ -1,0 +1,201 @@
+[
+  {
+    "path": "D:\\CODE\\Hands-On-Computer-Vision\\Chapter 4\\4-1.ipynb",
+    "rel": "Chapter 4\\4-1.ipynb",
+    "status": "success",
+    "elapsed_sec": 4.55448317527771,
+    "error": null,
+    "output_tail": "[NbConvertApp] Converting notebook D:\\CODE\\Hands-On-Computer-Vision\\Chapter 4\\4-1.ipynb to notebook\nD:\\python\\Lib\\site-packages\\zmq\\_future.py:718: RuntimeWarning: Proactor event loop does not implement add_reader family of methods required for zmq. Registering an additional selector thread for add_reader support via tornado. Use `asyncio.set_event_loop_policy(WindowsSelectorEventLoopPolicy())` to avoid this warning.\n  self._get_loop()\n[IPKernelApp] WARNING | Kernel is running over TCP without encryption. All communication (including code and outputs) is sent in plain text and is susceptible to eavesdropping. Use IPC transport or launch with kernel manager-provisioned CurveZMQ keys to enable transport encryption.\n[NbConvertApp] Writing 1206702 bytes to D:\\CODE\\Hands-On-Computer-Vision\\Chapter 4\\4-1.ipynb"
+  },
+  {
+    "path": "D:\\CODE\\Hands-On-Computer-Vision\\EXTRA\\人体姿态估计\\practice_extra.ipynb",
+    "rel": "EXTRA\\人体姿态估计\\practice_extra.ipynb",
+    "status": "success",
+    "elapsed_sec": 7.347360849380493,
+    "error": null,
+    "output_tail": "[NbConvertApp] Converting notebook D:\\CODE\\Hands-On-Computer-Vision\\EXTRA\\人体姿态估计\\practice_extra.ipynb to notebook\nD:\\python\\Lib\\site-packages\\zmq\\_future.py:718: RuntimeWarning: Proactor event loop does not implement add_reader family of methods required for zmq. Registering an additional selector thread for add_reader support via tornado. Use `asyncio.set_event_loop_policy(WindowsSelectorEventLoopPolicy())` to avoid this warning.\n  self._get_loop()\n[IPKernelApp] WARNING | Kernel is running over TCP without encryption. All communication (including code and outputs) is sent in plain text and is susceptible to eavesdropping. Use IPC transport or launch with kernel manager-provisioned CurveZMQ keys to enable transport encryption.\n[NbConvertApp] Writing 12637 bytes to D:\\CODE\\Hands-On-Computer-Vision\\EXTRA\\人体姿态估计\\practice_extra.ipynb"
+  },
+  {
+    "path": "D:\\CODE\\Hands-On-Computer-Vision\\EXTRA\\光流和运动场\\practice_extra.ipynb",
+    "rel": "EXTRA\\光流和运动场\\practice_extra.ipynb",
+    "status": "success",
+    "elapsed_sec": 6.100722312927246,
+    "error": null,
+    "output_tail": "[NbConvertApp] Converting notebook D:\\CODE\\Hands-On-Computer-Vision\\EXTRA\\光流和运动场\\practice_extra.ipynb to notebook\nD:\\python\\Lib\\site-packages\\zmq\\_future.py:718: RuntimeWarning: Proactor event loop does not implement add_reader family of methods required for zmq. Registering an additional selector thread for add_reader support via tornado. Use `asyncio.set_event_loop_policy(WindowsSelectorEventLoopPolicy())` to avoid this warning.\n  self._get_loop()\n[IPKernelApp] WARNING | Kernel is running over TCP without encryption. All communication (including code and outputs) is sent in plain text and is susceptible to eavesdropping. Use IPC transport or launch with kernel manager-provisioned CurveZMQ keys to enable transport encryption.\n[NbConvertApp] Writing 2773905 bytes to D:\\CODE\\Hands-On-Computer-Vision\\EXTRA\\光流和运动场\\practice_extra.ipynb"
+  },
+  {
+    "path": "D:\\CODE\\Hands-On-Computer-Vision\\EXTRA\\动作识别\\practice_extra.ipynb",
+    "rel": "EXTRA\\动作识别\\practice_extra.ipynb",
+    "status": "success",
+    "elapsed_sec": 6.343336820602417,
+    "error": null,
+    "output_tail": "[NbConvertApp] Converting notebook D:\\CODE\\Hands-On-Computer-Vision\\EXTRA\\动作识别\\practice_extra.ipynb to notebook\nD:\\python\\Lib\\site-packages\\zmq\\_future.py:718: RuntimeWarning: Proactor event loop does not implement add_reader family of methods required for zmq. Registering an additional selector thread for add_reader support via tornado. Use `asyncio.set_event_loop_policy(WindowsSelectorEventLoopPolicy())` to avoid this warning.\n  self._get_loop()\n[IPKernelApp] WARNING | Kernel is running over TCP without encryption. All communication (including code and outputs) is sent in plain text and is susceptible to eavesdropping. Use IPC transport or launch with kernel manager-provisioned CurveZMQ keys to enable transport encryption.\n[NbConvertApp] Writing 12652 bytes to D:\\CODE\\Hands-On-Computer-Vision\\EXTRA\\动作识别\\practice_extra.ipynb"
+  },
+  {
+    "path": "D:\\CODE\\Hands-On-Computer-Vision\\EXTRA\\卷积\\practice_extra.ipynb",
+    "rel": "EXTRA\\卷积\\practice_extra.ipynb",
+    "status": "success",
+    "elapsed_sec": 21.429306268692017,
+    "error": null,
+    "output_tail": "[NbConvertApp] Converting notebook D:\\CODE\\Hands-On-Computer-Vision\\EXTRA\\卷积\\practice_extra.ipynb to notebook\nD:\\python\\Lib\\site-packages\\zmq\\_future.py:718: RuntimeWarning: Proactor event loop does not implement add_reader family of methods required for zmq. Registering an additional selector thread for add_reader support via tornado. Use `asyncio.set_event_loop_policy(WindowsSelectorEventLoopPolicy())` to avoid this warning.\n  self._get_loop()\n[IPKernelApp] WARNING | Kernel is running over TCP without encryption. All communication (including code and outputs) is sent in plain text and is susceptible to eavesdropping. Use IPC transport or launch with kernel manager-provisioned CurveZMQ keys to enable transport encryption.\n[NbConvertApp] Writing 1345683 bytes to D:\\CODE\\Hands-On-Computer-Vision\\EXTRA\\卷积\\practice_extra.ipynb"
+  },
+  {
+    "path": "D:\\CODE\\Hands-On-Computer-Vision\\EXTRA\\图像分割\\practice_extra.ipynb",
+    "rel": "EXTRA\\图像分割\\practice_extra.ipynb",
+    "status": "failed",
+    "elapsed_sec": 129.75536847114563,
+    "error": "[NbConvertApp] Converting notebook D:\\CODE\\Hands-On-Computer-Vision\\EXTRA\\图像分割\\practice_extra.ipynb to notebook\nC:\\Users\\23738\\AppData\\Roaming\\Python\\Python314\\site-packages\\nbformat\\validator.py:434: MissingIDFieldWarning: Cell is missing an id field, this will become a hard error in future nbformat versions. You may want to use `normalize()` on your notebooks before validations (available since nbformat 5.1.4). Previous versions of nbformat are fixing this issue transparently, and will stop doing so in the future.\n  _validate(nbdict, ref, version, version_minor, relax_add_props)\nD:\\python\\Lib\\site-packages\\zmq\\_future.py:718: RuntimeWarning: Proactor event loop does not implement add_reader family of methods required for zmq. Registering an additional selector thread for add_reader support via tornado. Use `asyncio.set_event_loop_policy(WindowsSelectorEventLoopPolicy())` to avoid this warning.\n  self._get_loop()\n[IPKernelApp] WARNING | Kernel is running over TCP without encryption. All communication (including code and outputs) is sent in plain text and is susceptible to eavesdropping. Use IPC transport or launch with kernel manager-provisioned CurveZMQ keys to enable transport encryption.\n[NbConvertApp] ERROR | Timeout waiting for execute reply (120s).\n[IPKernelApp] ERROR | Exception in message handler:\nTraceback (most recent call last):\n  File \"D:\\python\\Lib\\site-packages\\ipykernel\\kernelbase.py\", line 478, in dispatch_shell\n    await result\n  File \"D:\\python\\Lib\\site-packages\\ipykernel\\ipkernel.py\", line 372, in execute_request\n    await super().execute_request(stream, ident, parent)\n  File \"D:\\python\\Lib\\site-packages\\ipykernel\\kernelbase.py\", line 857, in execute_request\n    reply_msg: dict[str, t.Any] = self.session.send(  # type:ignore[assignment]\n                                  ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n        stream,\n        ^^^^^^^\n    ...<4 lines>...\n        ident=ident,\n        ^^^^^^^^^^^^\n    )\n    ^\n  File \"D:\\python\\Lib\\site-packages\\jupyter_client\\session.py\", line 867, in send\n    stream.send_multipart(to_send, copy=copy)\n    ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^\n  File \"D:\\python\\Lib\\site-packages\\zmq\\sugar\\socket.py\", line 765, in send_multipart\n    self.send(msg, zmq.SNDMORE | flags, copy=copy, track=track)\n    ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"D:\\python\\Lib\\site-packages\\zmq\\sugar\\socket.py\", line 713, in send\n    return super().send(data, flags=flags, copy=copy, track=track)\n           ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"zmq/backend/cython/_zmq.py\", line 1152, in zmq.backend.cython._zmq.Socket.send\n    def send(self, data, flags=0, copy: bint = True, track: bint = False):\n    ^^^^^^^\n  File \"zmq/backend/cython/_zmq.py\", line 1194, in zmq.backend.cython._zmq.Socket.send\n    _check_closed(self)\n    ^^^\n  File \"zmq/backend/cython/_zmq.py\", line 1339, in zmq.backend.cython._zmq._check_closed\n    raise ZMQError(ENOTSOCK)\n    ^^^\nzmq.error.ZMQError: not a socket\nTraceback (most recent call last):\n  File \"D:\\python\\Lib\\site-packages\\nbclient\\client.py\", line 782, in _async_poll_for_reply\n    msg = await ensure_async(self.kc.shell_channel.get_msg(timeout=new_timeout))\n          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\23738\\AppData\\Roaming\\Python\\Python314\\site-packages\\jupyter_core\\utils\\__init__.py\", line 214, in ensure_async\n    result = await obj\n             ^^^^^^^^^\n  File \"D:\\python\\Lib\\site-packages\\jupyter_client\\channels.py\", line 330, in get_msg\n    raise Empty\n_queue.Empty\n\nDuring handling of the above exception, another exception occurred:\n\nTraceback (most recent call last):\n  File \"<frozen runpy>\", line 198, in _run_module_as_main\n  File \"<frozen runpy>\", line 88, in _run_code\n  File \"D:\\python\\Scripts\\jupyter-nbconvert.EXE\\__main__.py\", line 6, in <module>\n    sys.exit(main())\n             ~~~~^^\n  File \"C:\\Users\\23738\\AppData\\Roaming\\Python\\Python314\\site-packages\\jupyter_core\\application.py\", line 284, in launch_instance\n    super().launch_instance(argv=argv, **kwargs)\n    ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\23738\\AppData\\Roaming\\Python\\Python314\\site-packages\\traitlets\\config\\application.py\", line 1080, in launch_instance\n    app.start()\n    ~~~~~~~~~^^\n  File \"D:\\python\\Lib\\site-packages\\nbconvert\\nbconvertapp.py\", line 420, in start\n    self.convert_notebooks()\n    ~~~~~~~~~~~~~~~~~~~~~~^^\n  File \"D:\\python\\Lib\\site-packages\\nbconvert\\nbconvertapp.py\", line 597, in convert_notebooks\n    self.convert_single_notebook(notebook_filename)\n    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^\n  File \"D:\\python\\Lib\\site-packages\\nbconvert\\nbconvertapp.py\", line 563, in convert_single_notebook\n    output, resources = self.export_single_notebook(\n                        ~~~~~~~~~~~~~~~~~~~~~~~~~~~^\n        notebook_filename, resources, input_buffer=input_buffer\n        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n    )\n    ^\n  File \"D:\\python\\Lib\\site-packages\\nbconvert\\nbconvertapp.py\", line 487, in export_single_notebook\n    output, resources = self.exporter.from_filename(\n                        ~~~~~~~~~~~~~~~~~~~~~~~~~~~^\n        notebook_filename, resources=resources\n        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n    )\n    ^\n  File \"D:\\python\\Lib\\site-packages\\nbconvert\\exporters\\exporter.py\", line 201, in from_filename\n    return self.from_file(f, resources=resources, **kw)\n           ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"D:\\python\\Lib\\site-packages\\nbconvert\\exporters\\exporter.py\", line 220, in from_file\n    return self.from_notebook_node(\n           ~~~~~~~~~~~~~~~~~~~~~~~^\n        nbformat.read(file_stream, as_version=4), resources=resources, **kw\n        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n    )\n    ^\n  File \"D:\\python\\Lib\\site-packages\\nbconvert\\exporters\\notebook.py\", line 36, in from_notebook_node\n    nb_copy, resources = super().from_notebook_node(nb, resources, **kw)\n                         ~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^\n  File \"D:\\python\\Lib\\site-packages\\nbconvert\\exporters\\exporter.py\", line 154, in from_notebook_node\n    nb_copy, resources = self._preprocess(nb_copy, resources)\n                         ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^\n  File \"D:\\python\\Lib\\site-packages\\nbconvert\\exporters\\exporter.py\", line 353, in _preprocess\n    nbc, resc = preprocessor(nbc, resc)\n                ~~~~~~~~~~~~^^^^^^^^^^^\n  File \"D:\\python\\Lib\\site-packages\\nbconvert\\preprocessors\\base.py\", line 48, in __call__\n    return self.preprocess(nb, resources)\n           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^\n  File \"D:\\python\\Lib\\site-packages\\nbconvert\\preprocessors\\execute.py\", line 103, in preprocess\n    self.preprocess_cell(cell, resources, index)\n    ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"D:\\python\\Lib\\site-packages\\nbconvert\\preprocessors\\execute.py\", line 124, in preprocess_cell\n    cell = self.execute_cell(cell, index, store_history=True)\n  File \"C:\\Users\\23738\\AppData\\Roaming\\Python\\Python314\\site-packages\\jupyter_core\\utils\\__init__.py\", line 165, in wrapped\n    return loop.run_until_complete(inner)\n           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^\n  File \"D:\\python\\Lib\\asyncio\\base_events.py\", line 719, in run_until_complete\n    return future.result()\n           ~~~~~~~~~~~~~^^\n  File \"D:\\python\\Lib\\site-packages\\nbclient\\client.py\", line 1005, in async_execute_cell\n    exec_reply = await self.task_poll_for_reply\n                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"D:\\python\\Lib\\site-packages\\nbclient\\client.py\", line 806, in _async_poll_for_reply\n    error_on_timeout_execute_reply = await self._async_handle_timeout(timeout, cell)\n                                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"D:\\python\\Lib\\site-packages\\nbclient\\client.py\", line 856, in _async_handle_timeout\n    raise CellTimeoutError.error_from_timeout_and_cell(\n        \"Cell execution timed out\", timeout, cell\n    )\nnbclient.exceptions.CellTimeoutError: A cell timed out while it was being executed, after 120 seconds.\nThe message was: Cell execution timed out.\nHere is a preview of the cell contents:\n-------------------\n['def cal_dist_weighted_matrix(size, r, sig_X):', '    h, w = size', '    X_matrix = np.zeros((h*w, h*w))', '    for i in range(h*w):', '        for j in range(h*w):']\n...\n['', '', 'weighted_matrix = set_weighted_matrix(sample_img)', '', 'weighted_matrix']\n-------------------\n\n"
+  },
+  {
+    "path": "D:\\CODE\\Hands-On-Computer-Vision\\EXTRA\\图像分类\\practice_extra.ipynb",
+    "rel": "EXTRA\\图像分类\\practice_extra.ipynb",
+    "status": "success",
+    "elapsed_sec": 18.5747389793396,
+    "error": null,
+    "output_tail": "[NbConvertApp] Converting notebook D:\\CODE\\Hands-On-Computer-Vision\\EXTRA\\图像分类\\practice_extra.ipynb to notebook\nD:\\python\\Lib\\site-packages\\zmq\\_future.py:718: RuntimeWarning: Proactor event loop does not implement add_reader family of methods required for zmq. Registering an additional selector thread for add_reader support via tornado. Use `asyncio.set_event_loop_policy(WindowsSelectorEventLoopPolicy())` to avoid this warning.\n  self._get_loop()\n[IPKernelApp] WARNING | Kernel is running over TCP without encryption. All communication (including code and outputs) is sent in plain text and is susceptible to eavesdropping. Use IPC transport or launch with kernel manager-provisioned CurveZMQ keys to enable transport encryption.\n[NbConvertApp] Writing 126070 bytes to D:\\CODE\\Hands-On-Computer-Vision\\EXTRA\\图像分类\\practice_extra.ipynb"
+  },
+  {
+    "path": "D:\\CODE\\Hands-On-Computer-Vision\\EXTRA\\实例分割\\practice_extra.ipynb",
+    "rel": "EXTRA\\实例分割\\practice_extra.ipynb",
+    "status": "success",
+    "elapsed_sec": 4.711547374725342,
+    "error": null,
+    "output_tail": "[NbConvertApp] Converting notebook D:\\CODE\\Hands-On-Computer-Vision\\EXTRA\\实例分割\\practice_extra.ipynb to notebook\nD:\\python\\Lib\\site-packages\\zmq\\_future.py:718: RuntimeWarning: Proactor event loop does not implement add_reader family of methods required for zmq. Registering an additional selector thread for add_reader support via tornado. Use `asyncio.set_event_loop_policy(WindowsSelectorEventLoopPolicy())` to avoid this warning.\n  self._get_loop()\n[IPKernelApp] WARNING | Kernel is running over TCP without encryption. All communication (including code and outputs) is sent in plain text and is susceptible to eavesdropping. Use IPC transport or launch with kernel manager-provisioned CurveZMQ keys to enable transport encryption.\n[NbConvertApp] Writing 19839 bytes to D:\\CODE\\Hands-On-Computer-Vision\\EXTRA\\实例分割\\practice_extra.ipynb"
+  },
+  {
+    "path": "D:\\CODE\\Hands-On-Computer-Vision\\EXTRA\\模板匹配\\practice_extra.ipynb",
+    "rel": "EXTRA\\模板匹配\\practice_extra.ipynb",
+    "status": "success",
+    "elapsed_sec": 10.298641443252563,
+    "error": null,
+    "output_tail": "[NbConvertApp] Converting notebook D:\\CODE\\Hands-On-Computer-Vision\\EXTRA\\模板匹配\\practice_extra.ipynb to notebook\nD:\\python\\Lib\\site-packages\\zmq\\_future.py:718: RuntimeWarning: Proactor event loop does not implement add_reader family of methods required for zmq. Registering an additional selector thread for add_reader support via tornado. Use `asyncio.set_event_loop_policy(WindowsSelectorEventLoopPolicy())` to avoid this warning.\n  self._get_loop()\n[IPKernelApp] WARNING | Kernel is running over TCP without encryption. All communication (including code and outputs) is sent in plain text and is susceptible to eavesdropping. Use IPC transport or launch with kernel manager-provisioned CurveZMQ keys to enable transport encryption.\n[NbConvertApp] Writing 19834 bytes to D:\\CODE\\Hands-On-Computer-Vision\\EXTRA\\模板匹配\\practice_extra.ipynb"
+  },
+  {
+    "path": "D:\\CODE\\Hands-On-Computer-Vision\\EXTRA\\目标检测\\practice_extra.ipynb",
+    "rel": "EXTRA\\目标检测\\practice_extra.ipynb",
+    "status": "success",
+    "elapsed_sec": 65.73438596725464,
+    "error": null,
+    "output_tail": "  _validate(nbdict, ref, version, version_minor, relax_add_props)\nD:\\python\\Lib\\site-packages\\zmq\\_future.py:718: RuntimeWarning: Proactor event loop does not implement add_reader family of methods required for zmq. Registering an additional selector thread for add_reader support via tornado. Use `asyncio.set_event_loop_policy(WindowsSelectorEventLoopPolicy())` to avoid this warning.\n  self._get_loop()\n[IPKernelApp] WARNING | Kernel is running over TCP without encryption. All communication (including code and outputs) is sent in plain text and is susceptible to eavesdropping. Use IPC transport or launch with kernel manager-provisioned CurveZMQ keys to enable transport encryption.\n[NbConvertApp] Writing 161940 bytes to D:\\CODE\\Hands-On-Computer-Vision\\EXTRA\\目标检测\\practice_extra.ipynb"
+  },
+  {
+    "path": "D:\\CODE\\Hands-On-Computer-Vision\\EXTRA\\语义分割\\practice_extra.ipynb",
+    "rel": "EXTRA\\语义分割\\practice_extra.ipynb",
+    "status": "success",
+    "elapsed_sec": 22.69250226020813,
+    "error": null,
+    "output_tail": "  _validate(nbdict, ref, version, version_minor, relax_add_props)\nD:\\python\\Lib\\site-packages\\zmq\\_future.py:718: RuntimeWarning: Proactor event loop does not implement add_reader family of methods required for zmq. Registering an additional selector thread for add_reader support via tornado. Use `asyncio.set_event_loop_policy(WindowsSelectorEventLoopPolicy())` to avoid this warning.\n  self._get_loop()\n[IPKernelApp] WARNING | Kernel is running over TCP without encryption. All communication (including code and outputs) is sent in plain text and is susceptible to eavesdropping. Use IPC transport or launch with kernel manager-provisioned CurveZMQ keys to enable transport encryption.\n[NbConvertApp] Writing 193097 bytes to D:\\CODE\\Hands-On-Computer-Vision\\EXTRA\\语义分割\\practice_extra.ipynb"
+  },
+  {
+    "path": "D:\\CODE\\Hands-On-Computer-Vision\\图像处理基础\\几何变换\\practice.ipynb",
+    "rel": "图像处理基础\\几何变换\\practice.ipynb",
+    "status": "success",
+    "elapsed_sec": 11.318158864974976,
+    "error": null,
+    "output_tail": "[NbConvertApp] Converting notebook D:\\CODE\\Hands-On-Computer-Vision\\图像处理基础\\几何变换\\practice.ipynb to notebook\nD:\\python\\Lib\\site-packages\\zmq\\_future.py:718: RuntimeWarning: Proactor event loop does not implement add_reader family of methods required for zmq. Registering an additional selector thread for add_reader support via tornado. Use `asyncio.set_event_loop_policy(WindowsSelectorEventLoopPolicy())` to avoid this warning.\n  self._get_loop()\n[IPKernelApp] WARNING | Kernel is running over TCP without encryption. All communication (including code and outputs) is sent in plain text and is susceptible to eavesdropping. Use IPC transport or launch with kernel manager-provisioned CurveZMQ keys to enable transport encryption.\n[NbConvertApp] Writing 1983456 bytes to D:\\CODE\\Hands-On-Computer-Vision\\图像处理基础\\几何变换\\practice.ipynb"
+  },
+  {
+    "path": "D:\\CODE\\Hands-On-Computer-Vision\\图像处理基础\\图像滤波\\practice.ipynb",
+    "rel": "图像处理基础\\图像滤波\\practice.ipynb",
+    "status": "success",
+    "elapsed_sec": 10.594688177108765,
+    "error": null,
+    "output_tail": "[NbConvertApp] Converting notebook D:\\CODE\\Hands-On-Computer-Vision\\图像处理基础\\图像滤波\\practice.ipynb to notebook\nD:\\python\\Lib\\site-packages\\zmq\\_future.py:718: RuntimeWarning: Proactor event loop does not implement add_reader family of methods required for zmq. Registering an additional selector thread for add_reader support via tornado. Use `asyncio.set_event_loop_policy(WindowsSelectorEventLoopPolicy())` to avoid this warning.\n  self._get_loop()\n[IPKernelApp] WARNING | Kernel is running over TCP without encryption. All communication (including code and outputs) is sent in plain text and is susceptible to eavesdropping. Use IPC transport or launch with kernel manager-provisioned CurveZMQ keys to enable transport encryption.\n[NbConvertApp] Writing 1082312 bytes to D:\\CODE\\Hands-On-Computer-Vision\\图像处理基础\\图像滤波\\practice.ipynb"
+  },
+  {
+    "path": "D:\\CODE\\Hands-On-Computer-Vision\\图像处理基础\\图像滤波\\practice_extra.ipynb",
+    "rel": "图像处理基础\\图像滤波\\practice_extra.ipynb",
+    "status": "success",
+    "elapsed_sec": 11.317082166671753,
+    "error": null,
+    "output_tail": "  _validate(nbdict, ref, version, version_minor, relax_add_props)\nD:\\python\\Lib\\site-packages\\zmq\\_future.py:718: RuntimeWarning: Proactor event loop does not implement add_reader family of methods required for zmq. Registering an additional selector thread for add_reader support via tornado. Use `asyncio.set_event_loop_policy(WindowsSelectorEventLoopPolicy())` to avoid this warning.\n  self._get_loop()\n[IPKernelApp] WARNING | Kernel is running over TCP without encryption. All communication (including code and outputs) is sent in plain text and is susceptible to eavesdropping. Use IPC transport or launch with kernel manager-provisioned CurveZMQ keys to enable transport encryption.\n[NbConvertApp] Writing 2487422 bytes to D:\\CODE\\Hands-On-Computer-Vision\\图像处理基础\\图像滤波\\practice_extra.ipynb"
+  },
+  {
+    "path": "D:\\CODE\\Hands-On-Computer-Vision\\图像处理基础\\基于直方图统计的处理\\practice.ipynb",
+    "rel": "图像处理基础\\基于直方图统计的处理\\practice.ipynb",
+    "status": "success",
+    "elapsed_sec": 7.404760360717773,
+    "error": null,
+    "output_tail": "[NbConvertApp] Converting notebook D:\\CODE\\Hands-On-Computer-Vision\\图像处理基础\\基于直方图统计的处理\\practice.ipynb to notebook\nD:\\python\\Lib\\site-packages\\zmq\\_future.py:718: RuntimeWarning: Proactor event loop does not implement add_reader family of methods required for zmq. Registering an additional selector thread for add_reader support via tornado. Use `asyncio.set_event_loop_policy(WindowsSelectorEventLoopPolicy())` to avoid this warning.\n  self._get_loop()\n[IPKernelApp] WARNING | Kernel is running over TCP without encryption. All communication (including code and outputs) is sent in plain text and is susceptible to eavesdropping. Use IPC transport or launch with kernel manager-provisioned CurveZMQ keys to enable transport encryption.\n[NbConvertApp] Writing 1303646 bytes to D:\\CODE\\Hands-On-Computer-Vision\\图像处理基础\\基于直方图统计的处理\\practice.ipynb"
+  },
+  {
+    "path": "D:\\CODE\\Hands-On-Computer-Vision\\图像处理基础\\数字图像的获取和表示\\practice.ipynb",
+    "rel": "图像处理基础\\数字图像的获取和表示\\practice.ipynb",
+    "status": "success",
+    "elapsed_sec": 11.11840271949768,
+    "error": null,
+    "output_tail": "  _validate(nbdict, ref, version, version_minor, relax_add_props)\nD:\\python\\Lib\\site-packages\\zmq\\_future.py:718: RuntimeWarning: Proactor event loop does not implement add_reader family of methods required for zmq. Registering an additional selector thread for add_reader support via tornado. Use `asyncio.set_event_loop_policy(WindowsSelectorEventLoopPolicy())` to avoid this warning.\n  self._get_loop()\n[IPKernelApp] WARNING | Kernel is running over TCP without encryption. All communication (including code and outputs) is sent in plain text and is susceptible to eavesdropping. Use IPC transport or launch with kernel manager-provisioned CurveZMQ keys to enable transport encryption.\n[NbConvertApp] Writing 2781546 bytes to D:\\CODE\\Hands-On-Computer-Vision\\图像处理基础\\数字图像的获取和表示\\practice.ipynb"
+  },
+  {
+    "path": "D:\\CODE\\Hands-On-Computer-Vision\\图像处理基础\\特征提取\\practice.ipynb",
+    "rel": "图像处理基础\\特征提取\\practice.ipynb",
+    "status": "success",
+    "elapsed_sec": 76.17180752754211,
+    "error": null,
+    "output_tail": "[NbConvertApp] Converting notebook D:\\CODE\\Hands-On-Computer-Vision\\图像处理基础\\特征提取\\practice.ipynb to notebook\nD:\\python\\Lib\\site-packages\\zmq\\_future.py:718: RuntimeWarning: Proactor event loop does not implement add_reader family of methods required for zmq. Registering an additional selector thread for add_reader support via tornado. Use `asyncio.set_event_loop_policy(WindowsSelectorEventLoopPolicy())` to avoid this warning.\n  self._get_loop()\n[IPKernelApp] WARNING | Kernel is running over TCP without encryption. All communication (including code and outputs) is sent in plain text and is susceptible to eavesdropping. Use IPC transport or launch with kernel manager-provisioned CurveZMQ keys to enable transport encryption.\n[NbConvertApp] Writing 989042 bytes to D:\\CODE\\Hands-On-Computer-Vision\\图像处理基础\\特征提取\\practice.ipynb"
+  },
+  {
+    "path": "D:\\CODE\\Hands-On-Computer-Vision\\图像处理基础\\特征提取\\practice_extra.ipynb",
+    "rel": "图像处理基础\\特征提取\\practice_extra.ipynb",
+    "status": "success",
+    "elapsed_sec": 5.392151594161987,
+    "error": null,
+    "output_tail": "  _validate(nbdict, ref, version, version_minor, relax_add_props)\nD:\\python\\Lib\\site-packages\\zmq\\_future.py:718: RuntimeWarning: Proactor event loop does not implement add_reader family of methods required for zmq. Registering an additional selector thread for add_reader support via tornado. Use `asyncio.set_event_loop_policy(WindowsSelectorEventLoopPolicy())` to avoid this warning.\n  self._get_loop()\n[IPKernelApp] WARNING | Kernel is running over TCP without encryption. All communication (including code and outputs) is sent in plain text and is susceptible to eavesdropping. Use IPC transport or launch with kernel manager-provisioned CurveZMQ keys to enable transport encryption.\n[NbConvertApp] Writing 43992 bytes to D:\\CODE\\Hands-On-Computer-Vision\\图像处理基础\\特征提取\\practice_extra.ipynb"
+  },
+  {
+    "path": "D:\\CODE\\Hands-On-Computer-Vision\\图像处理基础\\颜色空间的转换\\practice.ipynb",
+    "rel": "图像处理基础\\颜色空间的转换\\practice.ipynb",
+    "status": "success",
+    "elapsed_sec": 18.984742641448975,
+    "error": null,
+    "output_tail": "[NbConvertApp] Converting notebook D:\\CODE\\Hands-On-Computer-Vision\\图像处理基础\\颜色空间的转换\\practice.ipynb to notebook\nD:\\python\\Lib\\site-packages\\zmq\\_future.py:718: RuntimeWarning: Proactor event loop does not implement add_reader family of methods required for zmq. Registering an additional selector thread for add_reader support via tornado. Use `asyncio.set_event_loop_policy(WindowsSelectorEventLoopPolicy())` to avoid this warning.\n  self._get_loop()\n[IPKernelApp] WARNING | Kernel is running over TCP without encryption. All communication (including code and outputs) is sent in plain text and is susceptible to eavesdropping. Use IPC transport or launch with kernel manager-provisioned CurveZMQ keys to enable transport encryption.\n[NbConvertApp] Writing 5553831 bytes to D:\\CODE\\Hands-On-Computer-Vision\\图像处理基础\\颜色空间的转换\\practice.ipynb"
+  },
+  {
+    "path": "D:\\CODE\\Hands-On-Computer-Vision\\最优化算法与立体视觉重建\\图像拼接模型\\practice.ipynb",
+    "rel": "最优化算法与立体视觉重建\\图像拼接模型\\practice.ipynb",
+    "status": "success",
+    "elapsed_sec": 11.224217653274536,
+    "error": null,
+    "output_tail": "[NbConvertApp] Converting notebook D:\\CODE\\Hands-On-Computer-Vision\\最优化算法与立体视觉重建\\图像拼接模型\\practice.ipynb to notebook\nD:\\python\\Lib\\site-packages\\zmq\\_future.py:718: RuntimeWarning: Proactor event loop does not implement add_reader family of methods required for zmq. Registering an additional selector thread for add_reader support via tornado. Use `asyncio.set_event_loop_policy(WindowsSelectorEventLoopPolicy())` to avoid this warning.\n  self._get_loop()\n[IPKernelApp] WARNING | Kernel is running over TCP without encryption. All communication (including code and outputs) is sent in plain text and is susceptible to eavesdropping. Use IPC transport or launch with kernel manager-provisioned CurveZMQ keys to enable transport encryption.\n[NbConvertApp] Writing 1296197 bytes to D:\\CODE\\Hands-On-Computer-Vision\\最优化算法与立体视觉重建\\图像拼接模型\\practice.ipynb"
+  },
+  {
+    "path": "D:\\CODE\\Hands-On-Computer-Vision\\最优化算法与立体视觉重建\\图像拼接模型\\practice_extra.ipynb",
+    "rel": "最优化算法与立体视觉重建\\图像拼接模型\\practice_extra.ipynb",
+    "status": "success",
+    "elapsed_sec": 3.9067282676696777,
+    "error": null,
+    "output_tail": "  _validate(nbdict, ref, version, version_minor, relax_add_props)\nD:\\python\\Lib\\site-packages\\zmq\\_future.py:718: RuntimeWarning: Proactor event loop does not implement add_reader family of methods required for zmq. Registering an additional selector thread for add_reader support via tornado. Use `asyncio.set_event_loop_policy(WindowsSelectorEventLoopPolicy())` to avoid this warning.\n  self._get_loop()\n[IPKernelApp] WARNING | Kernel is running over TCP without encryption. All communication (including code and outputs) is sent in plain text and is susceptible to eavesdropping. Use IPC transport or launch with kernel manager-provisioned CurveZMQ keys to enable transport encryption.\n[NbConvertApp] Writing 20321 bytes to D:\\CODE\\Hands-On-Computer-Vision\\最优化算法与立体视觉重建\\图像拼接模型\\practice_extra.ipynb"
+  },
+  {
+    "path": "D:\\CODE\\Hands-On-Computer-Vision\\最优化算法与立体视觉重建\\相机参数标定\\practice.ipynb",
+    "rel": "最优化算法与立体视觉重建\\相机参数标定\\practice.ipynb",
+    "status": "success",
+    "elapsed_sec": 4.268395662307739,
+    "error": null,
+    "output_tail": "[NbConvertApp] Converting notebook D:\\CODE\\Hands-On-Computer-Vision\\最优化算法与立体视觉重建\\相机参数标定\\practice.ipynb to notebook\nD:\\python\\Lib\\site-packages\\zmq\\_future.py:718: RuntimeWarning: Proactor event loop does not implement add_reader family of methods required for zmq. Registering an additional selector thread for add_reader support via tornado. Use `asyncio.set_event_loop_policy(WindowsSelectorEventLoopPolicy())` to avoid this warning.\n  self._get_loop()\n[IPKernelApp] WARNING | Kernel is running over TCP without encryption. All communication (including code and outputs) is sent in plain text and is susceptible to eavesdropping. Use IPC transport or launch with kernel manager-provisioned CurveZMQ keys to enable transport encryption.\n[NbConvertApp] Writing 22765 bytes to D:\\CODE\\Hands-On-Computer-Vision\\最优化算法与立体视觉重建\\相机参数标定\\practice.ipynb"
+  },
+  {
+    "path": "D:\\CODE\\Hands-On-Computer-Vision\\最优化算法与立体视觉重建\\相机参数标定\\practice_extra.ipynb",
+    "rel": "最优化算法与立体视觉重建\\相机参数标定\\practice_extra.ipynb",
+    "status": "success",
+    "elapsed_sec": 15.37515139579773,
+    "error": null,
+    "output_tail": "  _validate(nbdict, ref, version, version_minor, relax_add_props)\nD:\\python\\Lib\\site-packages\\zmq\\_future.py:718: RuntimeWarning: Proactor event loop does not implement add_reader family of methods required for zmq. Registering an additional selector thread for add_reader support via tornado. Use `asyncio.set_event_loop_policy(WindowsSelectorEventLoopPolicy())` to avoid this warning.\n  self._get_loop()\n[IPKernelApp] WARNING | Kernel is running over TCP without encryption. All communication (including code and outputs) is sent in plain text and is susceptible to eavesdropping. Use IPC transport or launch with kernel manager-provisioned CurveZMQ keys to enable transport encryption.\n[NbConvertApp] Writing 47999 bytes to D:\\CODE\\Hands-On-Computer-Vision\\最优化算法与立体视觉重建\\相机参数标定\\practice_extra.ipynb"
+  },
+  {
+    "path": "D:\\CODE\\Hands-On-Computer-Vision\\最优化算法与立体视觉重建\\立体视觉点云重建\\practice.ipynb",
+    "rel": "最优化算法与立体视觉重建\\立体视觉点云重建\\practice.ipynb",
+    "status": "success",
+    "elapsed_sec": 4.242989778518677,
+    "error": null,
+    "output_tail": "[NbConvertApp] Converting notebook D:\\CODE\\Hands-On-Computer-Vision\\最优化算法与立体视觉重建\\立体视觉点云重建\\practice.ipynb to notebook\nD:\\python\\Lib\\site-packages\\zmq\\_future.py:718: RuntimeWarning: Proactor event loop does not implement add_reader family of methods required for zmq. Registering an additional selector thread for add_reader support via tornado. Use `asyncio.set_event_loop_policy(WindowsSelectorEventLoopPolicy())` to avoid this warning.\n  self._get_loop()\n[IPKernelApp] WARNING | Kernel is running over TCP without encryption. All communication (including code and outputs) is sent in plain text and is susceptible to eavesdropping. Use IPC transport or launch with kernel manager-provisioned CurveZMQ keys to enable transport encryption.\n[NbConvertApp] Writing 215832 bytes to D:\\CODE\\Hands-On-Computer-Vision\\最优化算法与立体视觉重建\\立体视觉点云重建\\practice.ipynb"
+  },
+  {
+    "path": "D:\\CODE\\Hands-On-Computer-Vision\\最优化算法与立体视觉重建\\立体视觉点云重建\\practice_extra.ipynb",
+    "rel": "最优化算法与立体视觉重建\\立体视觉点云重建\\practice_extra.ipynb",
+    "status": "success",
+    "elapsed_sec": 22.026859760284424,
+    "error": null,
+    "output_tail": "  _validate(nbdict, ref, version, version_minor, relax_add_props)\nD:\\python\\Lib\\site-packages\\zmq\\_future.py:718: RuntimeWarning: Proactor event loop does not implement add_reader family of methods required for zmq. Registering an additional selector thread for add_reader support via tornado. Use `asyncio.set_event_loop_policy(WindowsSelectorEventLoopPolicy())` to avoid this warning.\n  self._get_loop()\n[IPKernelApp] WARNING | Kernel is running over TCP without encryption. All communication (including code and outputs) is sent in plain text and is susceptible to eavesdropping. Use IPC transport or launch with kernel manager-provisioned CurveZMQ keys to enable transport encryption.\n[NbConvertApp] Writing 31465 bytes to D:\\CODE\\Hands-On-Computer-Vision\\最优化算法与立体视觉重建\\立体视觉点云重建\\practice_extra.ipynb"
+  }
+]
