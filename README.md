@@ -27,16 +27,18 @@
 | 2 | 相机参数标定 | 单应 DLT、张正友闭式解、Rodrigues、LM 优化 | `calib_image_1..4.jpg` |
 | 3 | 立体视觉点云重建 | 8 点法 F、E 分解、cheirality、三角化 | `stereo_image_1.jpg`、`stereo_image_2.jpg` |
 
-### 第三部分：EXTRA 进阶章节（保持不变）
+---
 
-`EXTRA/` 下保留卷积、模板匹配、图像分割、图像分类、目标检测、语义分割、实例分割、人体姿态估计、动作识别、光流和运动场等补充 Notebook。该部分已补充与后续待补充的专题内容，其图片、公式与代码内容均以 Hands-on-CV，即上海交通大学《动手学习计算机视觉》相关资料为主，作为课堂之外的拓展。
+## 📂 原始参考代码
+
+`Hands-on-CV-main/` 为上海交通大学《动手学习计算机视觉》课程的原始代码仓库，包含第 2~19 章的完整教学 Notebook，是本仓库实践内容的主要参考来源。
 
 ---
 
 ## 🖼️ 图片、公式与代码来源说明
 
-- 图片、公式与代码示例以 **Hands-on-CV（上海交通大学《动手学习计算机视觉》）参考资料** 为主：`lena.jpeg`、`lenaface.jpg`、`chong.png`、`test1.png`、`test2.png`、`stitch1.jpg`、`stitch2.jpg` 等图片，以及部分章节中的公式推导、实现思路与教学代码组织方式，均主要参考该资料。
-- 参考库第 16 章（相机标定）与第 19 章（三维重建）为外链数据集、没有本地图片，因此对应章节沿用本仓库自备的 `calib_image_*` 与 `stereo_image_*`，并在 Notebook 中注明来源。
+- 图片、公式与代码示例以 **Hands-on-CV-main（上海交通大学《动手学习计算机视觉》）原始教学资料** 为主：`lena.jpeg`、`lenaface.jpg`、`chong.png`、`test1.png`、`test2.png`、`stitch1.jpg`、`stitch2.jpg` 等图片，以及公式推导、实现思路与教学代码组织方式，均主要参考该原始仓库。
+- 原始参考库第 16 章（相机标定）与第 19 章（三维重建）为外链数据集、没有本地图片，因此对应章节沿用本仓库自备的 `calib_image_*` 与 `stereo_image_*`，并在 Notebook 中注明来源。
 - `utils.py` 只提供基础设施，不包含任何算法，算法均保留在各章 Notebook 中。
 
 ---
@@ -85,4 +87,4 @@ jupyter notebook
 
 ## 📄 许可证与致谢
 
-本项目基于 [CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/) 协议，仅限非商业学习使用。课程内容参考华中科技大学软件学院《计算机视觉》课程体系，并以 Hands-on-CV（上海交通大学《动手学习计算机视觉》）中的相关公开教学资料作为图片、公式与代码补充的主要来源。
+本项目基于 [CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/) 协议，仅限非商业学习使用。课程内容参考华中科技大学软件学院《计算机视觉》课程体系，并以上海交通大学《动手学习计算机视觉》原始代码仓库 `Hands-on-CV-main/` 中的公开教学资料作为图片、公式与代码的主要参考来源。
