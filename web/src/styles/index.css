@@ -1,0 +1,320 @@
+:root {
+  --bg: #fafafa;
+  --bg-secondary: #ffffff;
+  --bg-tertiary: #f4f4f5;
+  --text: #18181b;
+  --text-secondary: #52525b;
+  --text-muted: #a1a1aa;
+  --border: #e4e4e7;
+  --border-hover: #d4d4d8;
+  --accent: #0ea5e9;
+  --accent-hover: #0284c7;
+  --accent-light: #e0f2fe;
+  --accent-soft: rgba(14, 165, 233, 0.1);
+  --code-bg: #f8fafc;
+  --code-text: #1e293b;
+  --success: #10b981;
+  --warning: #f59e0b;
+  --error: #ef4444;
+  --sidebar-width: 280px;
+  --outline-width: 240px;
+  --header-height: 56px;
+  --brand-gradient-from: #0ea5e9;
+  --brand-gradient-to: #6366f1;
+  --font-sans: 'Inter', 'Noto Sans SC', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-mono: 'JetBrains Mono', 'SFMono-Regular', Consolas, 'Courier New', monospace;
+}
+
+[data-theme="dark"] {
+  --bg: #0f0f10;
+  --bg-secondary: #18181b;
+  --bg-tertiary: #27272a;
+  --text: #fafafa;
+  --text-secondary: #a1a1aa;
+  --text-muted: #71717a;
+  --border: #27272a;
+  --border-hover: #3f3f46;
+  --accent: #38bdf8;
+  --accent-hover: #0ea5e9;
+  --accent-light: #0c4a6e;
+  --accent-soft: rgba(56, 189, 248, 0.15);
+  --code-bg: #1e293b;
+  --code-text: #e2e8f0;
+  --brand-gradient-from: #38bdf8;
+  --brand-gradient-to: #818cf8;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-sans);
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* 滚动条样式 */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--border);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--border-hover);
+}
+
+/* 文本选择 */
+::selection {
+  background: var(--accent-soft);
+  color: var(--accent);
+}
+
+/* 过渡动画 */
+.transition-theme {
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
+/* 字号设置 */
+[data-font-size="small"] {
+  font-size: 14px;
+}
+
+[data-font-size="default"] {
+  font-size: 16px;
+}
+
+[data-font-size="large"] {
+  font-size: 18px;
+}
+
+/* 按钮通用样式 */
+button {
+  font-family: inherit;
+  cursor: pointer;
+  border: none;
+  background: none;
+}
+
+button:disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* Notebook 内容样式 */
+.notebook-content {
+  max-width: 880px;
+  margin: 0 auto;
+}
+
+.notebook-content h1 {
+  font-size: 2rem;
+  font-weight: 700;
+  margin: 2rem 0 1rem;
+  line-height: 1.3;
+}
+
+.notebook-content h2 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin: 1.75rem 0 0.75rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.notebook-content h3 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin: 1.5rem 0 0.5rem;
+}
+
+.notebook-content h4 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin: 1.25rem 0 0.5rem;
+}
+
+.notebook-content p {
+  margin: 1rem 0;
+  line-height: 1.8;
+}
+
+.notebook-content ul,
+.notebook-content ol {
+  margin: 1rem 0;
+  padding-left: 1.5rem;
+}
+
+.notebook-content li {
+  margin: 0.5rem 0;
+  line-height: 1.7;
+}
+
+.notebook-content blockquote {
+  border-left: 4px solid var(--accent);
+  padding: 0.75rem 1rem;
+  margin: 1rem 0;
+  background: var(--accent-soft);
+  border-radius: 0 0.5rem 0.5rem 0;
+  color: var(--text-secondary);
+}
+
+.notebook-content table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1rem 0;
+  font-size: 0.9rem;
+}
+
+.notebook-content th,
+.notebook-content td {
+  border: 1px solid var(--border);
+  padding: 0.75rem 1rem;
+  text-align: left;
+}
+
+.notebook-content th {
+  background: var(--bg-tertiary);
+  font-weight: 600;
+}
+
+.notebook-content img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 0.5rem;
+  cursor: zoom-in;
+}
+
+.notebook-content a {
+  color: var(--accent);
+  text-decoration: none;
+}
+
+.notebook-content a:hover {
+  text-decoration: underline;
+}
+
+.notebook-content code {
+  font-family: var(--font-mono);
+  font-size: 0.875em;
+  padding: 0.2em 0.4em;
+  background: var(--bg-tertiary);
+  border-radius: 0.25rem;
+}
+
+.notebook-content pre {
+  margin: 0;
+}
+
+.notebook-content pre code {
+  padding: 0;
+  background: transparent;
+}
+
+/* 代码单元格 */
+.code-cell {
+  margin: 1.25rem 0;
+  border: 1px solid var(--border);
+  border-radius: 0.75rem;
+  overflow: hidden;
+  background: var(--bg-secondary);
+}
+
+.code-cell-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.5rem 0.75rem;
+  background: var(--bg-tertiary);
+  border-bottom: 1px solid var(--border);
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+
+.code-cell-output {
+  padding: 1rem;
+  background: var(--bg);
+  border-top: 1px solid var(--border);
+  font-family: var(--font-mono);
+  font-size: 0.875rem;
+  white-space: pre-wrap;
+  overflow-x: auto;
+  color: var(--text-secondary);
+}
+
+/* highlight.js 覆盖 */
+.hljs {
+  background: var(--code-bg) !important;
+  color: var(--code-text) !important;
+  padding: 1rem !important;
+  border-radius: 0 !important;
+  overflow-x: auto !important;
+  font-size: 0.875rem !important;
+  line-height: 1.7 !important;
+  font-family: var(--font-mono) !important;
+}
+
+/* KaTeX 覆盖 */
+.katex {
+  font-size: 1.05em;
+}
+
+.katex-display {
+  overflow-x: auto;
+  overflow-y: hidden;
+  padding: 0.5rem 0;
+  margin: 1rem 0;
+}
+
+/* 响应式 */
+@media (max-width: 1024px) {
+  .notebook-content {
+    padding: 0 1rem;
+  }
+}
+
+@media (max-width: 768px) {
+  :root {
+    --sidebar-width: 100%;
+    --outline-width: 100%;
+  }
+  
+  .notebook-content h1 {
+    font-size: 1.5rem;
+  }
+  
+  .notebook-content h2 {
+    font-size: 1.25rem;
+  }
+}
+
+/* 打印样式 */
+@media print {
+  .code-cell-header button,
+  .code-cell-output {
+    display: none;
+  }
+}
