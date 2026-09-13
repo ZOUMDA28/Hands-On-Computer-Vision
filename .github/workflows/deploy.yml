@@ -1,0 +1,92 @@
+name: Deploy Tutorial Site to GitHub Pages
+
+on:
+  push:
+    branches: [ main ]
+    paths:
+      - 'web/**'
+      - '.github/workflows/deploy.yml'
+      - '图像处理基础/**'
+      - '最优化算法与立体视觉重建/**'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: web
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+          cache-dependency-path: web/package-lock.json
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Prepare notebooks
+        run: |
+          mkdir -p public/notebooks/part1-image-processing
+          mkdir -p public/notebooks/part2-optimization-3d
+          
+          # 第一部分：图像处理基础
+          cp "../图像处理基础/数字图像的获取和表示/practice.ipynb" public/notebooks/part1-image-processing/01-digital-image.ipynb
+          cp "../图像处理基础/颜色空间的转换/practice.ipynb" public/notebooks/part1-image-processing/02-color-space.ipynb
+          cp "../图像处理基础/基于直方图统计的处理/practice.ipynb" public/notebooks/part1-image-processing/03-histogram.ipynb
+          cp "../图像处理基础/图像滤波/practice.ipynb" public/notebooks/part1-image-processing/04-image-filtering.ipynb
+          if [ -f "../图像处理基础/图像滤波/practice_extra.ipynb" ]; then
+            cp "../图像处理基础/图像滤波/practice_extra.ipynb" public/notebooks/part1-image-processing/04-image-filtering-extra.ipynb
+          fi
+          cp "../图像处理基础/特征提取/practice.ipynb" public/notebooks/part1-image-processing/05-feature-extraction.ipynb
+          if [ -f "../图像处理基础/特征提取/practice_extra.ipynb" ]; then
+            cp "../图像处理基础/特征提取/practice_extra.ipynb" public/notebooks/part1-image-processing/05-feature-extraction-extra.ipynb
+          fi
+          cp "../图像处理基础/几何变换/practice.ipynb" public/notebooks/part1-image-processing/06-geometric-transform.ipynb
+          
+          # 第二部分：最优化算法与立体视觉重建
+          cp "../最优化算法与立体视觉重建/图像拼接模型/practice.ipynb" public/notebooks/part2-optimization-3d/01-image-stitching.ipynb
+          if [ -f "../最优化算法与立体视觉重建/图像拼接模型/practice_extra.ipynb" ]; then
+            cp "../最优化算法与立体视觉重建/图像拼接模型/practice_extra.ipynb" public/notebooks/part2-optimization-3d/01-image-stitching-extra.ipynb
+          fi
+          cp "../最优化算法与立体视觉重建/相机参数标定/practice.ipynb" public/notebooks/part2-optimization-3d/02-camera-calibration.ipynb
+          if [ -f "../最优化算法与立体视觉重建/相机参数标定/practice_extra.ipynb" ]; then
+            cp "../最优化算法与立体视觉重建/相机参数标定/practice_extra.ipynb" public/notebooks/part2-optimization-3d/02-camera-calibration-extra.ipynb
+          fi
+          cp "../最优化算法与立体视觉重建/立体视觉点云重建/practice.ipynb" public/notebooks/part2-optimization-3d/03-stereo-reconstruction.ipynb
+          if [ -f "../最优化算法与立体视觉重建/立体视觉点云重建/practice_extra.ipynb" ]; then
+            cp "../最优化算法与立体视觉重建/立体视觉点云重建/practice_extra.ipynb" public/notebooks/part2-optimization-3d/03-stereo-reconstruction-extra.ipynb
+          fi
+
+      - name: Build
+        run: npm run build
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: docs
+
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
