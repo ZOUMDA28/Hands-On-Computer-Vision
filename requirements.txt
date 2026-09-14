@@ -1,0 +1,17 @@
+# 计算机视觉教程 —— Python 依赖
+#
+# 安装：
+#   pip install -r requirements.txt
+#
+# 注意：SIFT 等特征检测算法位于 opencv-contrib-python 中。
+# 若环境中已安装 opencv-python，请先卸载再安装 contrib 版，避免两者冲突：
+#   pip uninstall -y opencv-python opencv-contrib-python
+#   pip install opencv-contrib-python
+
+numpy>=1.24
+opencv-contrib-python>=4.8
+matplotlib>=3.7
+scipy>=1.10
+jupyter>=1.0
+nbformat>=5.9
+nbconvert>=7.0

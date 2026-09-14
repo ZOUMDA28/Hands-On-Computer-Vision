@@ -397,7 +397,7 @@ const NOTEBOOK_SVGS = {
   ),
 }
 
-export default function Welcome({ onSelectNotebook, language }) {
+export default function Welcome({ catalog = [], onSelect }) {
   const [starCount, setStarCount] = useState(null)
 
   // Fetch GitHub stars with cache
@@ -439,10 +439,10 @@ export default function Welcome({ onSelectNotebook, language }) {
   }
 
   const handleNotebookSelect = (nb) => {
-    const partDir = nb.section === 'image-processing'
-      ? 'part1-image-processing'
-      : 'part2-optimization-3d'
-    onSelectNotebook(`${partDir}/${nb.lessonId}.ipynb`)
+    // notebookId 是真实 notebook id（如 01-digital-image-acquisition-practice），
+    // 直接交给 App 的 onSelect，由 catalog 校验后加载。
+    if (!nb?.notebookId || typeof onSelect !== 'function') return
+    onSelect(nb.notebookId)
   }
 
   const handlePathSelect = (step) => {
@@ -611,7 +611,7 @@ export default function Welcome({ onSelectNotebook, language }) {
             <BookOpen className="w-5 h-5 sm:w-6 sm:h-6 stroke-[1.5]" />
           </div>
           <div className="space-y-0.5 min-w-0">
-            <div className="text-lg sm:text-xl md:text-2xl font-bold text-slate-900 tracking-tight leading-none">14+</div>
+            <div className="text-lg sm:text-xl md:text-2xl font-bold text-slate-900 tracking-tight leading-none">{catalog.length || 9}</div>
             <div className="text-[10px] sm:text-[11px] font-medium text-slate-500 leading-snug break-words">可运行 Notebook</div>
           </div>
         </div>
@@ -718,7 +718,7 @@ export default function Welcome({ onSelectNotebook, language }) {
         <div className="flex items-center justify-between">
           <div className="space-y-0.5">
             <h2 className="text-[18px] md:text-[20px] font-bold text-slate-900">精选 Notebook</h2>
-            <p className="text-xs text-slate-500 font-medium">10 个核心章节，点击即可开始学习</p>
+            <p className="text-xs text-slate-500 font-medium">每个学习要点一个 Notebook，点击即可开始学习</p>
           </div>
         </div>
 

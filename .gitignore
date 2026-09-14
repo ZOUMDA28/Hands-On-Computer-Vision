@@ -14,11 +14,25 @@ conda-meta/
 .cache/
 .parcel-cache/
 
-# Embedded git repos (Hands-on-CV reference copies inside notebooks)
+# Python
+__pycache__/
+*.py[cod]
+
+# Editors
+.vscode/
+.idea/
+
+# Embedded git repos (Hands-on-CV reference copies)
 notebooks/**/Hands-on-CV/
+Hands-on-CV-main/
+
+# Jupyter checkpoints
+.ipynb_checkpoints/
+**/.ipynb_checkpoints/
 
 # Temp scripts
 check_nb.py
 check_all_nb.py
 check_hw.py
 check_hw_detail.py
+ch2_exec.ipynb

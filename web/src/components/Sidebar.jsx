@@ -14,10 +14,11 @@ import {
 import { useSettingsContext } from '../context/SettingsContext.jsx'
 import { GITHUB_REPO_URL } from '../config.js'
 
-const SECTION_KEYS = ['image-processing', 'optimization-3d']
+const SECTION_KEYS = ['image-processing', 'optimization-3d', 'appendix']
 const SECTION_LABELS = {
   'image-processing': '图像处理基础',
   'optimization-3d': '最优化与立体视觉',
+  'appendix': '附录',
 }
 
 function getSectionKey(partDir) {
@@ -47,7 +48,7 @@ function buildSidebarSections(catalog) {
     const isExtra = isExtraNotebookId(item.id)
     sections.get(section).lessons.push({
       id: item.id,
-      num: isExtra ? `${chapterOrder}+` : String(chapterOrder),
+      num: item.numLabel || (isExtra ? `${chapterOrder}+` : String(chapterOrder)),
       title: item.title,
       section,
     })

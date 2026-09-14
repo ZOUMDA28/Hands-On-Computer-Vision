@@ -36,7 +36,7 @@
 | 章 | 目录 | 手写核心 | 参考课程 |
 |:--:|------|----------|----------|
 | 1 | 数字图像的获取和表示 | Gamma 校正、灰度化、二值化、翻转、亮度 | Stanford CS231A L1, MIT 6.801 |
-| 2 | 颜色空间的转换 | RGB↔HSV、RGB↔Lab、颜色传递 | CMU 16-720A |
+| 2 | 颜色空间的转换 | RGB↔HSV、RGB↔Lab、RGB→lαβ、Reinhard 统计量颜色传递 | CMU 16-720A, [Reinhard et al. 2001](https://users.cs.northwestern.edu/~bgooch/PDFs/ColorTransfer.pdf) |
 | 3 | 基于直方图统计的处理 | 直方图统计、均衡化、匹配 | MIT 6.801 |
 | 4 | 图像滤波 | 高斯核、高斯滤波、双边滤波、均值/中值滤波 | CMU 16-720A, MIT 6.801 |
 | 5 | 特征提取 | Canny、SIFT 关键点/描述子/匹配 | Stanford CS231A L9-L10 |
@@ -49,6 +49,16 @@
 | 7 | 图像拼接模型 | 线性最小二乘、RANSAC、仿射/单应拼接 | Stanford CS231A L9 |
 | 8 | 相机参数标定 | 单应 DLT、张正友闭式解、Rodrigues、LM 优化 | Stanford CS231A L2-L3 |
 | 9 | 立体视觉点云重建 | 8 点法 F、E 分解、cheirality、三角化 | Stanford CS231A L5-L7 |
+
+### 附录（拓展主题）
+
+| 编号 | 目录 | 内容 |
+|:--:|------|------|
+| A1 | 卷积基础 | 2D 卷积定义、手算验证、可分离滤波、边界处理 |
+| A2 | 额外学习主题 | Harris 角点、图像分割、光流、Structure from Motion、深度学习视觉概览 |
+
+> **约定**：每个学习要点对应**一个** `practice.ipynb`，不设多个重复 Notebook。
+> 与导师主线关系较远的拓展内容统一收进附录。
 
 ---
 
@@ -96,10 +106,13 @@ Hands-On-Computer-Vision/
 │   │   ├── 04-image-filtering/
 │   │   ├── 05-feature-extraction/
 │   │   └── 06-geometric-transformation/
-│   └── part2-optimization-3d/         # 第二部分：最优化与立体视觉
-│       ├── 07-image-stitching/
-│       ├── 08-camera-calibration/
-│       └── 09-stereo-reconstruction/
+│   ├── part2-optimization-3d/         # 第二部分：最优化与立体视觉
+│   │   ├── 07-image-stitching/
+│   │   ├── 08-camera-calibration/
+│   │   └── 09-stereo-reconstruction/
+│   └── appendix/                      # 附录：拓展主题
+│       ├── A1-convolution-basics/
+│       └── A2-additional-topics/
 ├── web/                               # React + Vite 前端
 │   ├── src/
 │   │   ├── components/               # React 组件

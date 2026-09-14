@@ -1,9 +1,11 @@
 import katex from 'katex'
 import { NOTEBOOK_CATALOG } from 'virtual:notebook-catalog'
 
+// 只收录正式教程 Notebook：排除 Hands-on-CV 参考副本与 practice_extra 重复章节
 const notebookModules = import.meta.glob([
   '../../../notebooks/**/*.ipynb',
   '!../../../notebooks/**/Hands-on-CV/**',
+  '!../../../notebooks/**/practice_extra.ipynb',
 ], {
   query: '?raw',
   import: 'default',
@@ -12,22 +14,20 @@ const notebookModules = import.meta.glob([
 const PARTS = [
   ['part1-image-processing', '图像处理基础'],
   ['part2-optimization-3d', '最优化与立体视觉'],
+  ['appendix', '附录'],
 ]
 
-const CHAPTER_ORDER = {
-  '数字图像的获取和表示': 1,
-  '颜色空间的转换': 2,
-  '基于直方图统计的处理': 3,
-  '图像滤波': 4,
-  '特征提取': 5,
-  '几何变换': 6,
-  '图像拼接模型': 7,
-  '相机参数标定': 8,
-  '立体视觉点云重建': 9,
+// 章节目录形如 01-digital-image-acquisition / 07-image-stitching，
+// 取前导数字作为全站连续编号（1..9）；附录 A1/A2 用字母编号，统一排在最后。
+function getChapterOrder(dir) {
+  const matched = String(dir).match(/^(\d+)/)
+  return matched ? Number(matched[1]) : 999
 }
 
-function getChapterOrder(dir) {
-  return CHAPTER_ORDER[dir] ?? 999
+// 侧边栏展示用的编号标签：正文用 1..9，附录用 A1/A2
+function getChapterLabel(dir) {
+  const matched = String(dir).match(/^(A\d+|\d+)/i)
+  return matched ? matched[1].toUpperCase() : ''
 }
 
 function isExtraNotebook(id) {
@@ -83,6 +83,7 @@ function buildNotebookEntries(modules, rootDir) {
       load,
       order: PARTS.findIndex(([d]) => d === partDir),
       chapterOrder: getChapterOrder(dir),
+      numLabel: getChapterLabel(dir),
       title: NOTEBOOK_CATALOG.zh?.[id]?.title || titleFromId(id),
     }
   })
@@ -720,6 +721,7 @@ export function getCatalog() {
       part,
       partDir: entry.partDir,
       chapterOrder: entry.chapterOrder,
+      numLabel: entry.numLabel,
     }
   })
 }

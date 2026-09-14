@@ -48,6 +48,8 @@ function listNotebookFiles(dir) {
       if (entry.name === 'Hands-on-CV' || entry.name.startsWith('.')) return []
       return listNotebookFiles(entryPath)
     }
+    // 跳过 practice_extra 重复章节（Hands-on-CV 参考副本）
+    if (entry.name === 'practice_extra.ipynb') return []
     return entry.isFile() && entry.name.endsWith('.ipynb') ? [entryPath] : []
   })
 }
