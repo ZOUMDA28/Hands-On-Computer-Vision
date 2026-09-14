@@ -24,16 +24,8 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Prepare notebooks directory
+      - name: Verify notebooks directory
         run: |
-          mkdir -p ../notebooks/part1-image-processing
-          mkdir -p ../notebooks/part2-optimization-3d
-          if [ -d "../图像处理基础" ]; then
-            cp -r ../图像处理基础/* ../notebooks/part1-image-processing/
-          fi
-          if [ -d "../最优化算法与立体视觉重建" ]; then
-            cp -r ../最优化算法与立体视觉重建/* ../notebooks/part2-optimization-3d/
-          fi
           echo "=== Part 1 (Image Processing) ==="
           find ../notebooks/part1-image-processing/ -name "*.ipynb" || echo "no notebooks"
           echo "=== Part 2 (Optimization & 3D) ==="
@@ -80,4 +72,3 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
-        continue-on-error: true
