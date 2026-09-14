@@ -30,6 +30,8 @@ jobs:
           find ../notebooks/part1-image-processing/ -name "*.ipynb" || echo "no notebooks"
           echo "=== Part 2 (Optimization & 3D) ==="
           find ../notebooks/part2-optimization-3d/ -name "*.ipynb" || echo "no notebooks"
+          echo "=== Appendix ==="
+          find ../notebooks/appendix/ -name "*.ipynb" || echo "no notebooks"
 
       - name: Setup Node.js
         uses: actions/setup-node@v4
@@ -47,7 +49,16 @@ jobs:
       - name: Copy notebook assets to docs
         run: |
           mkdir -p ../docs/notebooks
-          cp -r ../notebooks/* ../docs/notebooks/
+          # 只复制网站需要展示的资产：排除体积巨大的数据集文件
+          # （semper 的 .ppm / .3Dpoints / .camera，Notebook 已把结果内嵌为 base64）
+          rsync -a \
+            --exclude='*.ppm' \
+            --exclude='*.3Dpoints' \
+            --exclude='*.camera' \
+            --exclude='.ipynb_checkpoints/' \
+            --exclude='Hands-on-CV/' \
+            ../notebooks/ ../docs/notebooks/
+          du -sh ../docs/notebooks
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3

@@ -30,6 +30,9 @@ Hands-on-CV-main/
 .ipynb_checkpoints/
 **/.ipynb_checkpoints/
 
+# Notebook 生成产物（点云等，运行 Notebook 时自动重建）
+*.ply
+
 # Temp scripts
 check_nb.py
 check_all_nb.py

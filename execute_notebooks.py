@@ -10,8 +10,8 @@ import subprocess
 import tempfile
 import shutil
 
-NOTEBOOKS_DIR = r'd:\CODE\Hands-On-Computer-Vision\notebooks'
-PROJECT_ROOT = r'd:\CODE\Hands-On-Computer-Vision'
+NOTEBOOKS_DIR = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'notebooks')
+PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
 
 def find_notebooks_with_missing_outputs(base_dir):
     """找到缺少输出的Notebook"""
