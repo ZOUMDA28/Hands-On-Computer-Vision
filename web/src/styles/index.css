@@ -2573,3 +2573,81 @@ mark.note-anchor code {
     grid-template-columns: 1fr;
   }
 }
+
+
+/* ==========================================================================
+   项目主题覆盖：橙色
+   —— 设计系统来自参考项目（蓝色调），这里统一改为橙色系
+   ========================================================================== */
+
+:root {
+  /* 背景：暖橙色系 */
+  --bg-app: #fff7ed;
+  --bg-sidebar: #fffdf9;
+  --bg-sidebar-footer: rgba(255, 237, 213, 0.45);
+  --bg-input: #fffaf4;
+  --bg-hover: rgba(255, 237, 213, 0.7);
+  --bg-active: rgba(254, 215, 170, 0.55);
+
+  /* 边框：带一点暖色 */
+  --border-subtle: rgba(194, 65, 12, 0.06);
+  --border-light: rgba(194, 65, 12, 0.12);
+  --border-divider: rgba(194, 65, 12, 0.08);
+
+  /* 主色 */
+  --accent: #ea580c;
+  --accent-soft: rgba(234, 88, 12, 0.1);
+
+  /* 滚动条 */
+  --scrollbar-thumb: #fed7aa;
+  --scrollbar-thumb-hover: #fdba74;
+
+  /* 品牌 */
+  --brand-gradient-from: rgba(234, 88, 12, 0.11);
+  --brand-gradient-to: rgba(251, 146, 60, 0.14);
+  --brand-accent: #ea580c;
+
+  /* 代码 / 引用 / 表格 */
+  --code-inline-bg: #fff2e4;
+  --code-inline-border: rgba(234, 88, 12, 0.1);
+  --code-inline-text: #c2410c;
+  --blockquote-bg: #fff6ec;
+  --blockquote-border: rgba(234, 88, 12, 0.16);
+  --table-header-bg: #fffaf3;
+  --table-even-row: #fffcf8;
+  --toc-hover-bg: rgba(255, 247, 237, 0.8);
+}
+
+[data-theme="dark"] {
+  --bg-app: #17110c;
+  --bg-card: rgba(38, 28, 21, 0.94);
+  --bg-sidebar: #1d1610;
+  --bg-sidebar-footer: rgba(29, 22, 16, 0.6);
+  --bg-input: #251c15;
+  --bg-hover: rgba(59, 42, 30, 0.6);
+  --bg-active: rgba(80, 56, 36, 0.5);
+
+  --border-subtle: rgba(255, 237, 213, 0.07);
+  --border-light: rgba(255, 237, 213, 0.12);
+  --border-divider: rgba(255, 237, 213, 0.07);
+
+  --accent: #fb923c;
+  --accent-soft: rgba(251, 146, 60, 0.14);
+
+  --scrollbar-thumb: #4a3728;
+  --scrollbar-thumb-hover: #6b5140;
+
+  --brand-gradient-from: rgba(251, 146, 60, 0.12);
+  --brand-gradient-to: rgba(253, 186, 116, 0.12);
+  --brand-accent: #fb923c;
+
+  --code-inline-bg: rgba(194, 65, 12, 0.18);
+  --code-inline-border: rgba(251, 146, 60, 0.14);
+  --code-inline-text: #fdba74;
+  --blockquote-bg: rgba(234, 88, 12, 0.1);
+  --blockquote-border: rgba(251, 146, 60, 0.22);
+  --table-header-bg: rgba(255, 255, 255, 0.05);
+  --table-even-row: rgba(255, 255, 255, 0.02);
+  --toc-hover-bg: rgba(255, 255, 255, 0.05);
+  --modal-bg: #251c15;
+}

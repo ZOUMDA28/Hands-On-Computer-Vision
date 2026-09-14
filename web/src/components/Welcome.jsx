@@ -17,39 +17,39 @@ function formatStarCount(count) {
 // Section styles for the two learning paths
 const SECTION_STYLES = {
   'image-processing': {
-    bg: 'from-[#dbeafe] to-[#e0f2fe]',
-    tag: 'bg-blue-50 text-blue-600 border-blue-200/50',
+    bg: 'from-[#ffedd5] to-[#fff7ed]',
+    tag: 'bg-orange-50 text-orange-600 border-orange-200/50',
     name: '图像处理',
-    accent: 'blue',
-    iconBg: 'bg-blue-100 text-blue-600 border-blue-200/50',
-    pathBorder: 'border-l-blue-400',
-    gradient: 'from-blue-500 to-cyan-500',
-    soft: 'bg-blue-50 border-blue-200/50 text-blue-600',
+    accent: 'orange',
+    iconBg: 'bg-orange-100 text-orange-600 border-orange-200/50',
+    pathBorder: 'border-l-orange-400',
+    gradient: 'from-orange-500 to-amber-500',
+    soft: 'bg-orange-50 border-orange-200/50 text-orange-600',
   },
   'optimization-3d': {
-    bg: 'from-[#ede9fe] to-[#f5f3ff]',
-    tag: 'bg-purple-50 text-purple-600 border-purple-200/50',
+    bg: 'from-[#ffe4e6] to-[#fff1f2]',
+    tag: 'bg-rose-50 text-rose-600 border-rose-200/50',
     name: '立体视觉',
-    accent: 'purple',
-    iconBg: 'bg-purple-100 text-purple-600 border-purple-200/50',
-    pathBorder: 'border-l-purple-400',
-    gradient: 'from-purple-500 to-violet-500',
-    soft: 'bg-purple-50 border-purple-200/50 text-purple-600',
+    accent: 'rose',
+    iconBg: 'bg-rose-100 text-rose-600 border-rose-200/50',
+    pathBorder: 'border-l-rose-400',
+    gradient: 'from-rose-500 to-rose-500',
+    soft: 'bg-rose-50 border-rose-200/50 text-rose-600',
   },
 }
 
-// Notebook background gradients (CV theme colors)
+// Notebook background gradients (warm / orange theme)
 const NOTEBOOK_BG = {
-  'nb-1': 'from-[#eff6ff] to-[#bfdbfe]',     // 图像基础 - soft blue
-  'nb-2': 'from-[#ecfeff] to-[#a5f3fc]',     // 几何变换 - cyan
-  'nb-3': 'from-[#f0fdf4] to-[#86efac]',     // 图像滤波 - green
-  'nb-4': 'from-[#fef3c7] to-[#fcd34d]',     // 特征检测 - amber
-  'nb-5': 'from-[#ffedd5] to-[#fdba74]',     // 图像分割 - orange
-  'nb-6': 'from-[#fce7f3] to-[#f9a8d4]',     // 形态学 - pink
-  'nb-7': 'from-[#ede9fe] to-[#c4b5fd]',     // 频域处理 - purple
-  'nb-8': 'from-[#dbeafe] to-[#60a5fa]',     // 最优化 - vivid blue
-  'nb-9': 'from-[#f0fdfa] to-[#5eead4]',     // 相机标定 - teal
-  'nb-10': 'from-[#faf5ff] to-[#d8b4fe]',    // 立体视觉 - violet
+  'nb-1': 'from-[#fff7ed] to-[#fed7aa]',     // 数字图像 - 浅橙
+  'nb-2': 'from-[#fff1e6] to-[#fdba74]',     // 颜色空间 - 蜜桃
+  'nb-3': 'from-[#fff8e6] to-[#fcd34d]',     // 图像滤波 - 浅琥珀
+  'nb-4': 'from-[#fef3c7] to-[#fbbf24]',     // 特征提取 - 琥珀
+  'nb-5': 'from-[#ffedd5] to-[#fb923c]',     // 直方图 - 橙
+  'nb-6': 'from-[#ffe4e6] to-[#fda4af]',     // 几何变换 - 玫瑰
+  'nb-7': 'from-[#fde8e8] to-[#f87171]',     // 图像拼接 - 红
+  'nb-8': 'from-[#ffedd5] to-[#ea580c]',     // 相机标定 - 深橙
+  'nb-9': 'from-[#fef3c7] to-[#f59e0b]',     // 立体视觉 - 金
+  'nb-10': 'from-[#fdf4ff] to-[#e879f9]',    // 备用 - 品红
 }
 
 // Notebook SVG icons (10 CV-themed)
@@ -456,16 +456,16 @@ export default function Welcome({ catalog = [], onSelect }) {
   return (
     <div className="p-4 sm:p-6 md:p-8 space-y-6 sm:space-y-8 max-w-7xl w-full mx-auto">
       {/* HERO BANNER */}
-      <section className="hero rounded-3xl p-6 md:p-10 relative overflow-hidden shadow-sm border bg-gradient-to-br from-[#eff6ff]/90 via-[#f0f9ff] to-[#f5f3ff] border-blue-100/50">
+      <section className="hero rounded-3xl p-6 md:p-10 relative overflow-hidden shadow-sm border bg-gradient-to-br from-[#fff7ed]/90 via-[#fff1e6] to-[#ffedd5] border-orange-100/50">
         {/* Decorative blurs */}
-        <div className="absolute top-[-20%] right-[-10%] w-[350px] h-[350px] rounded-full bg-blue-400/10 blur-[80px] pointer-events-none"></div>
-        <div className="absolute bottom-[-10%] left-[20%] w-[250px] h-[250px] rounded-full bg-purple-300/10 blur-[60px] pointer-events-none"></div>
+        <div className="absolute top-[-20%] right-[-10%] w-[350px] h-[350px] rounded-full bg-orange-400/10 blur-[80px] pointer-events-none"></div>
+        <div className="absolute bottom-[-10%] left-[20%] w-[250px] h-[250px] rounded-full bg-rose-300/10 blur-[60px] pointer-events-none"></div>
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center relative z-10">
           <div className="lg:col-span-7 space-y-6">
             {/* Badge */}
-            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-xl text-xs font-bold bg-[#e0f2fe] text-blue-600 border border-blue-200/50 shadow-sm">
-              <span className="w-2.5 h-2.5 rounded-full bg-blue-600 animate-pulse"></span>
+            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-xl text-xs font-bold bg-[#e0f2fe] text-orange-600 border border-orange-200/50 shadow-sm">
+              <span className="w-2.5 h-2.5 rounded-full bg-orange-600 animate-pulse"></span>
               <span>面向实践的计算机视觉教程</span>
             </div>
 
@@ -473,7 +473,7 @@ export default function Welcome({ catalog = [], onSelect }) {
             <h1 className="text-3xl sm:text-4xl md:text-[46px] font-extrabold tracking-tight text-slate-900 leading-[1.2]">
               Hands-On Computer Vision
               <br className="hidden md:inline" />
-              <span className="bg-gradient-to-r from-blue-600 via-cyan-500 to-purple-600 bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-orange-600 via-amber-500 to-rose-600 bg-clip-text text-transparent">
                 计算机视觉自学与实践
               </span>
             </h1>
@@ -490,7 +490,7 @@ export default function Welcome({ catalog = [], onSelect }) {
                   const firstNb = RUNNABLE_NOTEBOOKS[0]
                   if (firstNb) handleNotebookSelect(firstNb)
                 }}
-                className="h-10 sm:h-12 px-5 sm:px-6 rounded-full bg-blue-600 hover:bg-blue-700 text-white font-bold text-xs sm:text-sm shadow-lg shadow-blue-500/10 hover:shadow-blue-500/20 active:scale-[0.98] transition-all flex items-center gap-2"
+                className="h-10 sm:h-12 px-5 sm:px-6 rounded-full bg-orange-600 hover:bg-orange-700 text-white font-bold text-xs sm:text-sm shadow-lg shadow-orange-500/10 hover:shadow-orange-500/20 active:scale-[0.98] transition-all flex items-center gap-2"
               >
                 <span>开始学习</span>
                 <ArrowRight className="w-4 h-4" />
@@ -506,19 +506,19 @@ export default function Welcome({ catalog = [], onSelect }) {
               </a>
               <button
                 onClick={scrollToPath}
-                className="h-10 sm:h-12 px-5 sm:px-6 rounded-full border border-blue-200/80 bg-white/85 hover:bg-white shadow-sm hover:shadow-md transition-all active:scale-[0.99] flex items-center gap-2"
+                className="h-10 sm:h-12 px-5 sm:px-6 rounded-full border border-orange-200/80 bg-white/85 hover:bg-white shadow-sm hover:shadow-md transition-all active:scale-[0.99] flex items-center gap-2"
               >
-                <Route className="w-4 h-4 text-blue-600 shrink-0" />
+                <Route className="w-4 h-4 text-orange-600 shrink-0" />
                 <span className="text-xs sm:text-sm font-extrabold text-slate-900 whitespace-nowrap">
                   浏览学习路径
                 </span>
-                <ChevronRight className="w-4 h-4 text-blue-600 group-hover:translate-x-0.5 transition-transform shrink-0" />
+                <ChevronRight className="w-4 h-4 text-orange-600 group-hover:translate-x-0.5 transition-transform shrink-0" />
               </button>
             </div>
 
             {/* Run hint */}
-            <div className="flex items-start gap-3 max-w-xl rounded-2xl border border-blue-200/80 bg-white/75 px-3.5 py-3 shadow-sm">
-              <div className="mt-0.5 flex h-7 w-7 shrink-0 items-center justify-center rounded-lg bg-blue-50 text-blue-600">
+            <div className="flex items-start gap-3 max-w-xl rounded-2xl border border-orange-200/80 bg-white/75 px-3.5 py-3 shadow-sm">
+              <div className="mt-0.5 flex h-7 w-7 shrink-0 items-center justify-center rounded-lg bg-orange-50 text-orange-600">
                 <CodeXml className="h-4 w-4" strokeWidth={2.2} />
               </div>
               <div className="min-w-0">
@@ -535,7 +535,7 @@ export default function Welcome({ catalog = [], onSelect }) {
             <div className="grid grid-cols-2 gap-x-4 sm:gap-x-6 gap-y-2 sm:gap-y-3 border-t border-slate-200/50 pt-4 sm:pt-5 max-w-lg select-none">
               {['可运行 Notebook', '代码级图解', '循序渐进', '实践导向'].map((feature, idx) => (
                 <div key={idx} className="flex items-center gap-2 text-[10px] sm:text-xs font-bold text-slate-500">
-                  <div className="w-4 h-4 sm:w-4.5 sm:h-4.5 rounded-full bg-blue-50 border border-blue-200 flex items-center justify-center text-blue-600 shrink-0">
+                  <div className="w-4 h-4 sm:w-4.5 sm:h-4.5 rounded-full bg-orange-50 border border-orange-200 flex items-center justify-center text-orange-600 shrink-0">
                     <Check className="w-2.5 h-2.5 sm:w-3 sm:h-3 stroke-[2.5]" />
                   </div>
                   <span className="truncate">{feature}</span>
@@ -554,19 +554,19 @@ export default function Welcome({ catalog = [], onSelect }) {
                   <span className="w-2.5 h-2.5 rounded-full bg-amber-400"></span>
                   <span className="w-2.5 h-2.5 rounded-full bg-green-400"></span>
                 </div>
-                <span className="text-[9px] font-mono font-bold text-blue-600 bg-blue-50 px-2 py-0.5 rounded border border-blue-100">convolution.py</span>
+                <span className="text-[9px] font-mono font-bold text-orange-600 bg-orange-50 px-2 py-0.5 rounded border border-orange-100">convolution.py</span>
               </div>
               <pre className="font-mono text-[10px] text-slate-600 space-y-0.5">
-                <div><span className="text-purple-600 font-bold">import</span> numpy <span className="text-purple-600 font-bold">as</span> np</div>
+                <div><span className="text-rose-600 font-bold">import</span> numpy <span className="text-rose-600 font-bold">as</span> np</div>
                 <div className="text-slate-400"># 手写 2D 卷积</div>
-                <div><span className="text-blue-600 font-bold">def</span> <span className="text-indigo-600 font-bold">conv2d</span>(img, kernel):</div>
+                <div><span className="text-orange-600 font-bold">def</span> <span className="text-orange-600 font-bold">conv2d</span>(img, kernel):</div>
                 <div>  h, w = img.shape[:2]</div>
                 <div>  kh, kw = kernel.shape</div>
-                <div>  out = np.<span className="text-purple-600">zeros</span>((h-kh+1, w-kw+1))</div>
-                <div>  <span className="text-blue-600 font-bold">for</span> i <span className="text-blue-600 font-bold">in</span> <span className="text-purple-600">range</span>(h-kh+1):</div>
-                <div>    <span className="text-blue-600 font-bold">for</span> j <span className="text-blue-600 font-bold">in</span> <span className="text-purple-600">range</span>(w-kw+1):</div>
-                <div>      out[i,j] = np.<span className="text-purple-600">sum</span>(img[i:i+kh, j:j+kw] * kernel)</div>
-                <div>  <span className="text-blue-600 font-bold">return</span> out</div>
+                <div>  out = np.<span className="text-rose-600">zeros</span>((h-kh+1, w-kw+1))</div>
+                <div>  <span className="text-orange-600 font-bold">for</span> i <span className="text-orange-600 font-bold">in</span> <span className="text-rose-600">range</span>(h-kh+1):</div>
+                <div>    <span className="text-orange-600 font-bold">for</span> j <span className="text-orange-600 font-bold">in</span> <span className="text-rose-600">range</span>(w-kw+1):</div>
+                <div>      out[i,j] = np.<span className="text-rose-600">sum</span>(img[i:i+kh, j:j+kw] * kernel)</div>
+                <div>  <span className="text-orange-600 font-bold">return</span> out</div>
               </pre>
             </div>
 
@@ -574,19 +574,19 @@ export default function Welcome({ catalog = [], onSelect }) {
             <div className="absolute w-[200px] h-[150px] rounded-2xl glass-effect shadow-lg p-3.5 border border-white/60 right-0 bottom-[10%] animate-float-2 z-0 bg-white/80 backdrop-blur-sm">
               <div className="flex justify-between items-center text-[9px] font-semibold text-slate-500 mb-2">
                 <span className="font-bold flex items-center gap-1">
-                  <ImageIcon className="w-3 h-3 text-cyan-500" />
+                  <ImageIcon className="w-3 h-3 text-amber-500" />
                   卷积结果
                 </span>
                 <span>3x3 Sobel</span>
               </div>
               <div className="grid grid-cols-6 gap-0.5 pt-0.5">
                 {[
-                  'bg-cyan-600/10', 'bg-cyan-600/20', 'bg-cyan-600/40', 'bg-cyan-600/60', 'bg-cyan-600/30', 'bg-cyan-600/10',
-                  'bg-cyan-600/20', 'bg-cyan-600/50', 'bg-cyan-600/80', 'bg-cyan-600/70', 'bg-cyan-600/40', 'bg-cyan-600/15',
-                  'bg-cyan-600/30', 'bg-cyan-600/70', 'bg-cyan-600/95', 'bg-cyan-600/85', 'bg-cyan-600/50', 'bg-cyan-600/20',
-                  'bg-cyan-600/25', 'bg-cyan-600/65', 'bg-cyan-600/90', 'bg-cyan-600/75', 'bg-cyan-600/45', 'bg-cyan-600/20',
-                  'bg-cyan-600/15', 'bg-cyan-600/40', 'bg-cyan-600/60', 'bg-cyan-600/50', 'bg-cyan-600/30', 'bg-cyan-600/10',
-                  'bg-cyan-600/5', 'bg-cyan-600/15', 'bg-cyan-600/25', 'bg-cyan-600/20', 'bg-cyan-600/10', 'bg-cyan-600/5',
+                  'bg-amber-600/10', 'bg-amber-600/20', 'bg-amber-600/40', 'bg-amber-600/60', 'bg-amber-600/30', 'bg-amber-600/10',
+                  'bg-amber-600/20', 'bg-amber-600/50', 'bg-amber-600/80', 'bg-amber-600/70', 'bg-amber-600/40', 'bg-amber-600/15',
+                  'bg-amber-600/30', 'bg-amber-600/70', 'bg-amber-600/95', 'bg-amber-600/85', 'bg-amber-600/50', 'bg-amber-600/20',
+                  'bg-amber-600/25', 'bg-amber-600/65', 'bg-amber-600/90', 'bg-amber-600/75', 'bg-amber-600/45', 'bg-amber-600/20',
+                  'bg-amber-600/15', 'bg-amber-600/40', 'bg-amber-600/60', 'bg-amber-600/50', 'bg-amber-600/30', 'bg-amber-600/10',
+                  'bg-amber-600/5', 'bg-amber-600/15', 'bg-amber-600/25', 'bg-amber-600/20', 'bg-amber-600/10', 'bg-amber-600/5',
                 ].map((cls, j) => (
                   <div key={j} className={`h-4 rounded-sm ${cls}`}></div>
                 ))}
@@ -598,7 +598,7 @@ export default function Welcome({ catalog = [], onSelect }) {
               <Target className="w-4.5 h-4.5 text-amber-500" />
             </div>
             <div className="absolute bottom-[30%] left-[15%] bg-white/85 p-2 rounded-xl shadow-md animate-float-1 border border-white/50 z-20">
-              <Sparkles className="w-4 h-4 text-purple-600" />
+              <Sparkles className="w-4 h-4 text-rose-600" />
             </div>
           </div>
         </div>
@@ -607,7 +607,7 @@ export default function Welcome({ catalog = [], onSelect }) {
       {/* STATS BAR */}
       <section className="stats grid grid-cols-[repeat(auto-fit,minmax(min(100%,190px),1fr))] bg-white rounded-2xl border border-slate-200/70 shadow-sm overflow-hidden">
         <div className="p-4 sm:p-5 md:p-6 flex items-center gap-3 sm:gap-4 hover:bg-slate-50/45 transition-colors">
-          <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-xl bg-blue-50 text-blue-600 flex items-center justify-center border border-blue-100/50 shrink-0">
+          <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-xl bg-orange-50 text-orange-600 flex items-center justify-center border border-orange-100/50 shrink-0">
             <BookOpen className="w-5 h-5 sm:w-6 sm:h-6 stroke-[1.5]" />
           </div>
           <div className="space-y-0.5 min-w-0">
@@ -616,7 +616,7 @@ export default function Welcome({ catalog = [], onSelect }) {
           </div>
         </div>
         <div className="p-4 sm:p-5 md:p-6 flex items-center gap-3 sm:gap-4 hover:bg-slate-50/45 transition-colors">
-          <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-xl bg-purple-50 text-purple-600 flex items-center justify-center border border-purple-100/50 shrink-0">
+          <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-xl bg-rose-50 text-rose-600 flex items-center justify-center border border-rose-100/50 shrink-0">
             <Layers className="w-5 h-5 sm:w-6 sm:h-6 stroke-[1.5]" />
           </div>
           <div className="space-y-0.5 min-w-0">
@@ -647,8 +647,8 @@ export default function Welcome({ catalog = [], onSelect }) {
       {/* FEATURES STRIP */}
       <section data-tour="features" className="grid grid-cols-[repeat(auto-fit,minmax(min(100%,180px),1fr))] bg-white rounded-2xl border border-slate-200/70 shadow-sm p-3 sm:p-4 gap-3 sm:gap-4">
         {[
-          { icon: <Monitor className="w-4 h-4 sm:w-4.5 sm:h-4.5 stroke-[2]" />, title: '可运行 Notebook', desc: '浏览器内直接渲染，无需环境配置', iconClass: 'bg-blue-50 text-blue-600 border-blue-100/50' },
-          { icon: <ImageIcon className="w-4 h-4 sm:w-4.5 sm:h-4.5 stroke-[2]" />, title: '代码级图解', desc: '每一个算法都有可视化演示', iconClass: 'bg-cyan-50 text-cyan-600 border-cyan-100/50' },
+          { icon: <Monitor className="w-4 h-4 sm:w-4.5 sm:h-4.5 stroke-[2]" />, title: '可运行 Notebook', desc: '浏览器内直接渲染，无需环境配置', iconClass: 'bg-orange-50 text-orange-600 border-orange-100/50' },
+          { icon: <ImageIcon className="w-4 h-4 sm:w-4.5 sm:h-4.5 stroke-[2]" />, title: '代码级图解', desc: '每一个算法都有可视化演示', iconClass: 'bg-amber-50 text-amber-600 border-amber-100/50' },
           { icon: <Zap className="w-4 h-4 sm:w-4.5 sm:h-4.5 stroke-[2]" />, title: '循序渐进', desc: '从基础到进阶，系统化学习', iconClass: 'bg-amber-50 text-amber-600 border-amber-100/50' },
           { icon: <CodeXml className="w-4 h-4 sm:w-4.5 sm:h-4.5 stroke-[2]" />, title: '实践导向', desc: '所有算法都有可运行代码', iconClass: 'bg-emerald-50 text-emerald-600 border-emerald-100/50' },
         ].map((f, i) => (
@@ -689,7 +689,7 @@ export default function Welcome({ catalog = [], onSelect }) {
                       <span className="text-[11px] font-mono font-bold tracking-wider px-2 py-0.5 rounded bg-white/60 text-slate-700 w-fit inline-block">
                         {step.num}
                       </span>
-                      <h3 className="text-base sm:text-lg font-bold text-slate-900 group-hover:text-blue-700 transition-colors">
+                      <h3 className="text-base sm:text-lg font-bold text-slate-900 group-hover:text-orange-700 transition-colors">
                         {step.title}
                       </h3>
                       <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
@@ -701,7 +701,7 @@ export default function Welcome({ catalog = [], onSelect }) {
                     <span className="text-xs font-semibold text-slate-500">
                       {RUNNABLE_NOTEBOOKS.filter(nb => nb.section === step.section).length} 个 Notebook
                     </span>
-                    <div className="inline-flex items-center gap-1 text-sm font-medium group-hover:gap-2 transition-all text-slate-700 group-hover:text-blue-600">
+                    <div className="inline-flex items-center gap-1 text-sm font-medium group-hover:gap-2 transition-all text-slate-700 group-hover:text-orange-600">
                       开始学习
                       <ChevronRight className="w-4 h-4" />
                     </div>
@@ -736,7 +736,7 @@ export default function Welcome({ catalog = [], onSelect }) {
                 </div>
                 <div className="p-3 bg-white flex-1 flex flex-col justify-between">
                   <div>
-                    <h4 className="text-[12px] font-semibold text-slate-900 group-hover:text-blue-600 transition-colors mb-1 line-clamp-1">{nb.title}</h4>
+                    <h4 className="text-[12px] font-semibold text-slate-900 group-hover:text-orange-600 transition-colors mb-1 line-clamp-1">{nb.title}</h4>
                     <p className="text-[11px] text-slate-500 line-clamp-2 leading-relaxed">{nb.desc}</p>
                   </div>
                   <div className="flex items-center justify-between text-[10px] mt-2">
