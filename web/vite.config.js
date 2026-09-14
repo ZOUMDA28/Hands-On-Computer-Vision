@@ -43,7 +43,11 @@ function listNotebookFiles(dir) {
   const entries = readdirSync(dir, { withFileTypes: true })
   return entries.flatMap((entry) => {
     const entryPath = path.join(dir, entry.name)
-    if (entry.isDirectory()) return listNotebookFiles(entryPath)
+    if (entry.isDirectory()) {
+      // 跳过 Hands-on-CV 参考副本目录和其他非教程目录
+      if (entry.name === 'Hands-on-CV' || entry.name.startsWith('.')) return []
+      return listNotebookFiles(entryPath)
+    }
     return entry.isFile() && entry.name.endsWith('.ipynb') ? [entryPath] : []
   })
 }

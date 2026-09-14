@@ -1,7 +1,10 @@
 import katex from 'katex'
 import { NOTEBOOK_CATALOG } from 'virtual:notebook-catalog'
 
-const notebookModules = import.meta.glob('../../../notebooks/**/*.ipynb', {
+const notebookModules = import.meta.glob([
+  '../../../notebooks/**/*.ipynb',
+  '!../../../notebooks/**/Hands-on-CV/**',
+], {
   query: '?raw',
   import: 'default',
 })
