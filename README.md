@@ -1,14 +1,8 @@
-<<<<<<< HEAD
-# Hands-On Computer Vision - Tutorial Site
-
-计算机视觉自学与实践交互式教程网站。
-=======
 # 计算机视觉基础 — 自学与实践教程
 
 > 华中科技大学 · 软件学院 · 生成智能组内部培训资料（2025.12）
 
 本仓库提供从像素基础到三维重建的**交互式编程实践教程**，包含 9 章 Notebook 和配套的在线教程网站。每个 Notebook 均包含概念推导、手写代码实现、与 OpenCV 的数值对比、结果可视化和练习解答。
->>>>>>> e8dbc7c (add course homework with CS231A/CMU 16-385 actual assignments and GitHub solutions)
 
 ## 技术栈
 
@@ -18,11 +12,7 @@
 - **代码高亮**: highlight.js
 - **图标**: lucide-react
 
-<<<<<<< HEAD
 ## 功能特性
-=======
-## 📚 课程大纲（严格遵循导师路线）
->>>>>>> e8dbc7c (add course homework with CS231A/CMU 16-385 actual assignments and GitHub solutions)
 
 - Jupyter Notebook 直接渲染
 - 中英文双语切换
@@ -39,31 +29,10 @@
 - URL hash 路由
 - 响应式设计
 
-<<<<<<< HEAD
-## 项目结构
+## 📚 课程大纲（严格遵循导师路线）
 
-```
-cv-tutorial-site/
-├── notebooks/                    # 中文教程笔记本（.ipynb 文件）
-│   ├── part1-image-processing/   # 图像处理基础
-│   └── part2-optimization-3d/    # 最优化算法与立体视觉
-├── web/                          # React/Vite 前端网站
-│   ├── src/
-│   │   ├── components/           # React 组件
-│   │   ├── data/                 # 数据配置
-│   │   ├── hooks/                # 自定义 Hooks
-│   │   ├── styles/               # 全局样式
-│   │   ├── App.jsx
-│   │   ├── config.js
-│   │   └── main.jsx
-│   ├── index.html
-│   ├── package.json
-│   └── vite.config.js
-└── .github/workflows/deploy.yml  # GitHub Pages 部署
-```
+### 第一部分：图像处理基础（6 章）
 
-## 开发
-=======
 | 章 | 目录 | 手写核心 | 参考课程 |
 |:--:|------|----------|----------|
 | 1 | 数字图像的获取和表示 | Gamma 校正、灰度化、二值化、翻转、亮度 | Stanford CS231A L1, MIT 6.801 |
@@ -132,12 +101,20 @@ Hands-On-Computer-Vision/
 │       ├── 08-camera-calibration/
 │       └── 09-stereo-reconstruction/
 ├── web/                               # React + Vite 前端
-├── 图像处理基础/                       # 原始 Notebook（开发环境）
-├── 最优化算法与立体视觉重建/           # 原始 Notebook（开发环境）
-├── Hands-on-CV-main/                   # 上海交通大学参考代码
+│   ├── src/
+│   │   ├── components/               # React 组件
+│   │   ├── data/                     # 数据配置
+│   │   ├── hooks/                    # 自定义 Hooks
+│   │   ├── styles/                   # 全局样式
+│   │   ├── App.jsx
+│   │   ├── config.js
+│   │   └── main.jsx
+│   ├── index.html
+│   ├── package.json
+│   └── vite.config.js
 ├── utils.py                            # 基础设施
 ├── requirements.txt
-└── README.md
+└── .github/workflows/deploy.yml       # GitHub Pages 部署
 ```
 
 ---
@@ -176,19 +153,9 @@ pip install -r requirements.txt
 - SIFT 需要 `opencv-contrib-python`；如果已在其他环境安装 `opencv-python`，请先卸载后再装 contrib 版。
 
 ## 🚀 快速开始
->>>>>>> e8dbc7c (add course homework with CS231A/CMU 16-385 actual assignments and GitHub solutions)
 
 ### 运行 Notebook
 
-```bash
-cd web
-npm install
-npm run dev
-```
-
-<<<<<<< HEAD
-## 构建
-=======
 打开 `notebooks/` 对应章节目录下的 `practice.ipynb`，执行 `Kernel → Restart & Run All`。
 
 ### 运行教程网站
@@ -198,7 +165,8 @@ cd web
 npm install
 npm run dev
 ```
->>>>>>> e8dbc7c (add course homework with CS231A/CMU 16-385 actual assignments and GitHub solutions)
+
+### 构建
 
 ```bash
 cd web
@@ -208,13 +176,12 @@ npm run build
 
 ## 部署
 
-<<<<<<< HEAD
 推送到 `main` 分支后，GitHub Actions 会自动构建并部署到 GitHub Pages。
 
-## 许可证
+---
 
-本项目基于 CC BY-NC-SA 4.0 协议，仅限非商业学习使用。
-=======
+## 📝 编码规范
+
 1. **手写实现 + 库对比验证**：算法函数自己写，另起验证单元格与 OpenCV/NumPy 结果做 MAE/RMSE 对比
 2. **函数化与文档化**：核心逻辑封装为带中文 docstring 的函数
 3. **可复现**：统一 `set_random_seed(42)`
@@ -241,6 +208,5 @@ npm run build
 - 上海交通大学《动手学习计算机视觉》[Hands-on-CV](https://github.com/boyu-ai/Hands-on-CV)
 - 斯坦福大学 [CS231A](https://web.stanford.edu/class/cs231a/)
 - CMU [16-720A](https://vision.cs.cmu.edu/courses.html)
-- MIT [6.801](https://ocw.mit.edu/courses/6-801-machine-vision-fall-2000/)
+- MIT [6.801](https://ocw.mit.edu/courses/6-801-machine-vision-fall-2020/)
 - UC Berkeley [CS280](https://www2.eecs.berkeley.edu/Courses/CS280/)
->>>>>>> e8dbc7c (add course homework with CS231A/CMU 16-385 actual assignments and GitHub solutions)
