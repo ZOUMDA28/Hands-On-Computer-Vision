@@ -691,9 +691,19 @@ function renderCodeCell(cell, symbols, index) {
 function renderNotebook(nb, entry) {
   const symbols = collectNotebookSymbols(nb)
   const imageBase = `${import.meta.env.BASE_URL}notebooks/${entry.partDir}/${entry.dir ? entry.dir + '/' : ''}`
+  let isFirstMarkdown = true
   return nb.cells
     .map((cell, index) => {
-      if (cell.cell_type === 'markdown') return renderMarkdown(normalizeSource(cell.source), imageBase)
+      if (cell.cell_type === 'markdown') {
+        let source = normalizeSource(cell.source)
+        if (isFirstMarkdown) {
+          isFirstMarkdown = false
+          // NotebookViewer 顶部已经渲染了 meta.title（该标题正是取自这里的 H1），
+          // 因此正文里同名的首个一级标题要去掉，否则标题会重复显示两次。
+          source = source.replace(/^\s*#\s+[^\n]*(?:\n|$)/, '')
+        }
+        return renderMarkdown(source, imageBase)
+      }
       if (cell.cell_type === 'code') return renderCodeCell(cell, symbols, index)
       return ''
     })
