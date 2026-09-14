@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import { useState, useEffect, useLayoutEffect, useRef } from 'react'
 import {
   Eye,
@@ -423,6 +424,99 @@ export default function Sidebar({
           </div>
         </div>
       )}
+=======
+import { useMemo } from 'react'
+import { getCatalog, PARTS } from '../data/notebooks'
+
+function SidebarItem({ item, seqNum, isActive, onClick }) {
+  return (
+    <div
+      className={`sidebar-item ${isActive ? 'active' : ''}`}
+      onClick={() => onClick(item.id)}
+    >
+      <span className="sidebar-chapter-num">
+        {seqNum}
+      </span>
+      <span className="sidebar-item-title">{item.title}</span>
+    </div>
+  )
+}
+
+function SidebarSection({ partKey, items, activeId, onSelect, startNum }) {
+  const part = PARTS[partKey]
+  if (!part) return null
+
+  let currentNum = startNum
+
+  return (
+    <div className="sidebar-section">
+      <div className="sidebar-section-title">
+        {part.title}
+      </div>
+      {items.map((item) => (
+        <SidebarItem
+          key={item.id}
+          item={item}
+          seqNum={currentNum++}
+          isActive={activeId === item.id}
+          onClick={onSelect}
+        />
+      ))}
+    </div>
+  )
+}
+
+export default function Sidebar({ activeId, onSelect, isOpen, onClose }) {
+  const catalog = useMemo(() => getCatalog(), [])
+
+  // Group by part
+  const grouped = useMemo(() => {
+    const result = {}
+    for (const item of catalog) {
+      if (!result[item.part]) result[item.part] = []
+      result[item.part].push(item)
+    }
+    return result
+  }, [catalog])
+
+  // Order parts
+  const partOrder = ['part1-image-processing', 'part2-optimization-3d', 'appendix']
+
+  // Compute starting number for each part (sequential across parts)
+  const partStartNums = useMemo(() => {
+    const starts = {}
+    let num = 1
+    for (const partKey of partOrder) {
+      starts[partKey] = num
+      num += (grouped[partKey] || []).length
+    }
+    return starts
+  }, [grouped, partOrder])
+
+  return (
+    <aside className={`sidebar ${isOpen ? 'open' : ''}`}>
+      <div className="sidebar-header">
+        <a className="sidebar-logo" href="#/" onClick={(e) => { e.preventDefault(); onSelect(null) }}>
+          <span className="sidebar-logo-icon">CV</span>
+          <div>
+            <div>计算机视觉教程</div>
+            <div className="sidebar-subtitle">华中科技大学 · 软件学院</div>
+          </div>
+        </a>
+      </div>
+      <nav className="sidebar-nav">
+        {partOrder.map((partKey) => (
+          <SidebarSection
+            key={partKey}
+            partKey={partKey}
+            items={grouped[partKey] || []}
+            activeId={activeId}
+            onSelect={onSelect}
+            startNum={partStartNums[partKey] || 1}
+          />
+        ))}
+      </nav>
+>>>>>>> e8dbc7c (add course homework with CS231A/CMU 16-385 actual assignments and GitHub solutions)
     </aside>
   )
 }

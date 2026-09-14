@@ -4,4 +4,22 @@ dist
 *.log
 .env
 .env.local
+<<<<<<< HEAD
 docs
+=======
+.env.*.local
+
+# Conda
+conda-meta/
+
+# Website build cache
+.cache/
+.parcel-cache/
+
+# Embedded git repos (Hands-on-CV reference copies inside notebooks)
+notebooks/**/Hands-on-CV/
+
+# Temp scripts
+check_nb.py
+check_all_nb.py
+>>>>>>> e8dbc7c (add course homework with CS231A/CMU 16-385 actual assignments and GitHub solutions)

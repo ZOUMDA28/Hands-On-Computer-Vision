@@ -1,8 +1,16 @@
+<<<<<<< HEAD
 name: Deploy Tutorial Site to GitHub Pages
 
 on:
   push:
     branches: [ main ]
+=======
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches: [main, master]
+>>>>>>> e8dbc7c (add course homework with CS231A/CMU 16-385 actual assignments and GitHub solutions)
   workflow_dispatch:
 
 permissions:
@@ -10,10 +18,13 @@ permissions:
   pages: write
   id-token: write
 
+<<<<<<< HEAD
 concurrency:
   group: "pages"
   cancel-in-progress: false
 
+=======
+>>>>>>> e8dbc7c (add course homework with CS231A/CMU 16-385 actual assignments and GitHub solutions)
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -21,6 +32,7 @@ jobs:
       run:
         working-directory: web
     steps:
+<<<<<<< HEAD
       - name: Checkout
         uses: actions/checkout@v4
 
@@ -54,10 +66,42 @@ jobs:
         with:
           path: docs
 
+=======
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - run: npm install
+      - run: npm run build
+      - name: Copy notebooks to docs
+        run: |
+          cp -r ../notebooks ../docs/notebooks
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: ../docs
+      - name: Deploy to GitHub Pages
+        uses: actions/deploy-pages@v4
+
+  deploy-gh-pages:
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - name: Build
+        working-directory: web
+        run: |
+          npm install
+          npm run build
+          cp -r ../notebooks ../docs/notebooks
+>>>>>>> e8dbc7c (add course homework with CS231A/CMU 16-385 actual assignments and GitHub solutions)
       - name: Deploy to gh-pages branch
         uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
+<<<<<<< HEAD
           publish_dir: docs
           force_orphan: true
 
@@ -72,3 +116,7 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
+=======
+          publish_dir: ../docs
+          force_orphan: true
+>>>>>>> e8dbc7c (add course homework with CS231A/CMU 16-385 actual assignments and GitHub solutions)

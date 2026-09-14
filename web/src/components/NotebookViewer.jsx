@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import { useEffect, useLayoutEffect, useMemo, useRef, useState } from 'react'
 import {
   ChevronLeft,
@@ -1223,9 +1224,317 @@ function NotebookViewer({
             </div>
           </aside>
         )}
+=======
+import { useState, useMemo, useEffect, useRef } from 'react'
+import { parseNotebook, renderMarkdown, renderOutput, getOutline } from '../data/notebooks'
+import { ChevronDown, ChevronRight, Code2, X } from 'lucide-react'
+
+function CodeCell({ cell, index }) {
+  const [expanded, setExpanded] = useState(true)
+  const [outputExpanded, setOutputExpanded] = useState(true)
+  const hasOutput = cell.outputs && cell.outputs.length > 0
+
+  return (
+    <div className="nb-code-cell">
+      <div className="nb-code-header">
+        <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
+          <Code2 size={12} />
+          <span>In [{cell.executionCount || index + 1}]</span>
+        </div>
+        <button className="nb-code-toggle" onClick={() => setExpanded(!expanded)}>
+          {expanded ? <ChevronDown size={12} /> : <ChevronRight size={12} />}
+          {expanded ? '收起' : '展开'}
+        </button>
+      </div>
+      <div className={`nb-code-body ${expanded ? 'expanded' : 'collapsed'}`}>
+        <div
+          className="nb-code-source"
+          dangerouslySetInnerHTML={{
+            __html: renderPythonCode(cell.source)
+          }}
+        />
+        {hasOutput && outputExpanded && (
+          <div className="nb-code-output">
+            {cell.outputs.map((output, i) => {
+              const rendered = renderOutput(output)
+              if (!rendered) return null
+              return (
+                <div key={i} className="nb-output-item">
+                  {rendered.type === 'image' && (
+                    <img
+                      className="nb-output-image"
+                      src={rendered.src}
+                      alt={`Output ${i + 1}`}
+                      onClick={(e) => {
+                        e.target.dispatchEvent(new CustomEvent('lightbox', {
+                          detail: rendered.src,
+                          bubbles: true
+                        }))
+                      }}
+                    />
+                  )}
+                  {rendered.type === 'text' && (
+                    <pre className="nb-output-text">{rendered.content}</pre>
+                  )}
+                  {rendered.type === 'html' && (
+                    <div
+                      className="nb-output-html"
+                      dangerouslySetInnerHTML={{ __html: rendered.content }}
+                    />
+                  )}
+                  {rendered.type === 'error' && (
+                    <pre className="nb-output-error">{rendered.content}</pre>
+                  )}
+                </div>
+              )
+            })}
+          </div>
+        )}
+        {hasOutput && !outputExpanded && (
+          <div className="nb-code-output" style={{ padding: '4px 12px' }}>
+            <button
+              className="nb-code-toggle"
+              onClick={() => setOutputExpanded(true)}
+            >
+              <ChevronRight size={12} /> 显示输出
+            </button>
+          </div>
+        )}
+>>>>>>> e8dbc7c (add course homework with CS231A/CMU 16-385 actual assignments and GitHub solutions)
       </div>
     </div>
   )
 }
 
+<<<<<<< HEAD
 export default NotebookViewer
+=======
+function renderPythonCode(source) {
+  if (!source) return ''
+  // Use the highlighter from notebooks.js
+  // We need to import it, but to avoid circular deps, re-implement here
+  const keywords = new Set([
+    'def', 'class', 'if', 'else', 'elif', 'for', 'while', 'try', 'except',
+    'finally', 'with', 'as', 'import', 'from', 'return', 'yield', 'lambda',
+    'global', 'nonlocal', 'pass', 'break', 'continue', 'raise', 'assert',
+    'del', 'in', 'not', 'and', 'or', 'is', 'None', 'True', 'False',
+    'async', 'await', 'self', 'cls'
+  ])
+  const builtins = new Set([
+    'print', 'len', 'range', 'enumerate', 'zip', 'map', 'filter', 'sorted',
+    'reversed', 'sum', 'min', 'max', 'abs', 'round', 'isinstance', 'type',
+    'int', 'float', 'str', 'list', 'dict', 'set', 'tuple', 'bool',
+    'open', 'format', 'super', 'property', 'staticmethod', 'classmethod',
+    'getattr', 'setattr', 'hasattr', 'input', 'np', 'cv2', 'plt', 'matplotlib'
+  ])
+
+  function escapeHtml(str) {
+    return str.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
+      .replace(/"/g, '&quot;').replace(/'/g, '&#39;')
+  }
+
+  let result = ''
+  let i = 0
+  const code = source
+  const n = code.length
+
+  while (i < n) {
+    const c = code[i]
+
+    // Comment
+    if (c === '#') {
+      let end = code.indexOf('\n', i)
+      if (end === -1) end = n
+      result += `<span class="tk-comment">${escapeHtml(code.slice(i, end))}</span>`
+      i = end
+      continue
+    }
+
+    // String (triple quotes)
+    if (c === '"' || c === "'") {
+      const quote = c
+      if (code[i + 1] === quote && code[i + 2] === quote) {
+        let end = code.indexOf(quote + quote + quote, i + 3)
+        if (end === -1) end = n
+        else end += 3
+        result += `<span class="tk-string">${escapeHtml(code.slice(i, end))}</span>`
+        i = end
+        continue
+      }
+      let end = i + 1
+      while (end < n && code[end] !== quote && code[end] !== '\n') {
+        if (code[end] === '\\') end++
+        end++
+      }
+      if (end < n && code[end] === quote) end++
+      result += `<span class="tk-string">${escapeHtml(code.slice(i, end))}</span>`
+      i = end
+      continue
+    }
+
+    // Decorator
+    if (c === '@' && (i === 0 || code[i - 1] === '\n' || code[i - 1] === ' ')) {
+      let end = i + 1
+      while (end < n && /[\w.]/.test(code[end])) end++
+      result += `<span class="tk-decorator">${escapeHtml(code.slice(i, end))}</span>`
+      i = end
+      continue
+    }
+
+    // Number
+    if (/\d/.test(c)) {
+      let end = i + 1
+      while (end < n && /[\d.eExXa-fA-F_]/.test(code[end])) end++
+      result += `<span class="tk-number">${escapeHtml(code.slice(i, end))}</span>`
+      i = end
+      continue
+    }
+
+    // Identifier/keyword
+    if (/[a-zA-Z_]/.test(c)) {
+      let end = i + 1
+      while (end < n && /[\w]/.test(code[end])) end++
+      const word = code.slice(i, end)
+      if (keywords.has(word)) {
+        result += `<span class="tk-keyword">${word}</span>`
+      } else if (builtins.has(word)) {
+        result += `<span class="tk-builtin">${word}</span>`
+      } else {
+        result += escapeHtml(word)
+      }
+      i = end
+      continue
+    }
+
+    result += escapeHtml(c)
+    i++
+  }
+
+  return result
+}
+
+function MarkdownCell({ source, imageBase, onImageClick }) {
+  const html = useMemo(() => renderMarkdown(source, imageBase), [source, imageBase])
+
+  useEffect(() => {
+    // Render KaTeX
+    const container = document.getElementById('nb-md-current')
+    if (!container) return
+
+    const mathElements = container.querySelectorAll('[data-math]')
+    mathElements.forEach((el) => {
+      const math = el.getAttribute('data-math')
+      const isDisplay = el.classList.contains('katex-display')
+      try {
+        if (window.katex) {
+          window.katex.render(math, el, {
+            displayMode: isDisplay,
+            throwOnError: false,
+            errorColor: '#dc2626',
+          })
+        }
+      } catch (e) {
+        el.textContent = math
+      }
+    })
+  }, [html])
+
+  return (
+    <div
+      className="nb-markdown"
+      id="nb-md-current"
+      dangerouslySetInnerHTML={{ __html: html }}
+      onClick={(e) => {
+        if (e.target.tagName === 'IMG' && !e.target.classList.contains('nb-output-image')) {
+          onImageClick(e.target.src)
+        }
+      }}
+    />
+  )
+}
+
+export default function NotebookViewer({ notebook, rawContent, onBack }) {
+  const [lightboxSrc, setLightboxSrc] = useState(null)
+  const containerRef = useRef(null)
+
+  const { cells, metadata } = useMemo(() => {
+    if (!notebook || !rawContent) return { cells: [], metadata: {} }
+    return parseNotebook(rawContent)
+  }, [notebook, rawContent])
+
+  const outline = useMemo(() => getOutline(cells), [cells])
+
+  // Handle lightbox events from code output images
+  useEffect(() => {
+    const handler = (e) => setLightboxSrc(e.detail)
+    document.addEventListener('lightbox', handler)
+    return () => document.removeEventListener('lightbox', handler)
+  }, [])
+
+  // Scroll to top when notebook changes
+  useEffect(() => {
+    if (containerRef.current) {
+      containerRef.current.scrollTop = 0
+    }
+  }, [notebook?.id])
+
+  if (!notebook) return null
+
+  return (
+    <div className="notebook-viewer" ref={containerRef}>
+      <div className="notebook-content">
+        {cells.map((cell, index) => {
+          if (cell.cellType === 'markdown') {
+            return (
+              <div className="nb-cell" key={index}>
+                <MarkdownCell
+                  source={cell.source}
+                  imageBase={notebook.imageBase}
+                  onImageClick={setLightboxSrc}
+                />
+              </div>
+            )
+          } else if (cell.cellType === 'code') {
+            return (
+              <div className="nb-cell" key={index}>
+                <CodeCell cell={cell} index={index} />
+              </div>
+            )
+          }
+          return null
+        })}
+      </div>
+
+      {outline.length > 0 && (
+        <div className="notebook-outline">
+          <div className="outline-title">本页大纲</div>
+          {outline.map((heading, i) => (
+            <a
+              key={i}
+              href={`#${heading.id}`}
+              className={`outline-item level-${heading.level}`}
+              onClick={(e) => {
+                e.preventDefault()
+                const el = document.getElementById('nb-md-current')
+                // Find the heading text in the content
+                const headings = el?.querySelectorAll(`h${heading.level}`)
+                if (headings && headings[i]) {
+                  headings[i].scrollIntoView({ behavior: 'smooth', block: 'start' })
+                }
+              }}
+            >
+              {heading.text}
+            </a>
+          ))}
+        </div>
+      )}
+
+      {lightboxSrc && (
+        <div className="lightbox-overlay" onClick={() => setLightboxSrc(null)}>
+          <img className="lightbox-img" src={lightboxSrc} alt="放大查看" />
+        </div>
+      )}
+    </div>
+  )
+}
+>>>>>>> e8dbc7c (add course homework with CS231A/CMU 16-385 actual assignments and GitHub solutions)

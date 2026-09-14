@@ -1,308 +1,205 @@
-import { useState, useEffect, useCallback, useRef } from 'react'
-import { flushSync } from 'react-dom'
-import { PanelLeftOpen } from 'lucide-react'
-import Sidebar from './components/Sidebar.jsx'
-import NotebookViewer from './components/NotebookViewer.jsx'
-import NotesPanel from './components/NotesPanel.jsx'
-import Welcome from './components/Welcome.jsx'
-import SettingsPanel from './components/SettingsPanel.jsx'
-import ImageLightbox, { useImagePreview } from './components/ImageLightbox.jsx'
-import { SettingsProvider } from './context/SettingsContext.jsx'
-import useSettings from './hooks/useSettings.js'
-import useTheme from './hooks/useTheme.js'
-import useNotesAndBookmarks from './hooks/useNotesAndBookmarks.js'
-import { getCatalog, getNotebook, getCachedNotebook, prefetchNotebook } from './data/notebooks.js'
-
-const NOTES_SENTINEL = '__notes__'
-
-function getInitialNotebookId() {
-  const hash = window.location.hash.replace(/^#\/?/, '')
-  return hash || null
-}
-
-function resolveNotebookId(id, catalog) {
-  if (!id || id === NOTES_SENTINEL) return id
-  return catalog.some((notebook) => notebook.id === id) ? id : null
-}
-
-function getInitialSidebarOpen() {
-  return window.innerWidth >= 768
-}
-
-function replaceUrlWithHash(id) {
-  const hash = id ? `#${id}` : ''
-  window.history.replaceState(null, '', `${window.location.pathname}${hash}`)
-}
-
-function AppContent() {
-  const { settings, updateSettings } = useSettings()
-  const { resolvedTheme, toggleTheme } = useTheme(settings.theme)
-  const nbm = useNotesAndBookmarks()
-  const { imagePreview, openSrc, close: closeImagePreview } = useImagePreview()
-
-  const [catalog, setCatalog] = useState(() => getCatalog())
-  const [currentId, setCurrentId] = useState(() =>
-    resolveNotebookId(getInitialNotebookId(), catalog),
-  )
-  const [notebook, setNotebook] = useState(null)
-  const [loadError, setLoadError] = useState(false)
-  const [sidebarOpen, setSidebarOpen] = useState(() => getInitialSidebarOpen())
-  const [settingsOpen, setSettingsOpen] = useState(false)
-
-  // catalog ref：让 schedulePrefetch 回调保持稳定引用
-  const catalogRef = useRef(catalog)
-  useEffect(() => {
-    catalogRef.current = catalog
-  }, [catalog])
-
-  // 浏览器空闲时预取下一篇 notebook
-  const schedulePrefetch = useCallback((id) => {
-    const list = catalogRef.current
-    const idx = list.findIndex((n) => n.id === id)
-    if (idx < 0) return
-    const next = list[idx + 1]
-    if (!next) return
-    const run = () => prefetchNotebook(next.id)
-    if ('requestIdleCallback' in window) {
-      window.requestIdleCallback(run, { timeout: 2000 })
-    } else {
-      setTimeout(run, 200)
-    }
-  }, [])
-
-  // 同步字号到 CSS 变量
-  useEffect(() => {
-    const sizeMap = { small: '14.5px', default: '16.5px', large: '18.5px' }
-    document.documentElement.style.setProperty(
-      '--font-size-notebook',
-      sizeMap[settings.fontSize] || '16.5px',
-    )
-  }, [settings.fontSize])
-
-  // 移动端自动收起侧边栏
-  useEffect(() => {
-    const mobileQuery = window.matchMedia('(max-width: 767px)')
-    const syncSidebarForMobile = () => {
-      if (mobileQuery.matches) setSidebarOpen(false)
-    }
-
-    syncSidebarForMobile()
-    mobileQuery.addEventListener?.('change', syncSidebarForMobile)
-    return () => mobileQuery.removeEventListener?.('change', syncSidebarForMobile)
-  }, [])
-
-  // 加载 notebook
-  useEffect(() => {
-    let cancelled = false
-
-    if (!currentId || currentId === NOTES_SENTINEL) {
-      setNotebook(null)
-      setLoadError(false)
-      return () => {
-        cancelled = true
-      }
-    }
-
-    // 缓存命中：同步 set，跳过 spinner
-    const cached = getCachedNotebook(currentId)
-    if (cached) {
-      setNotebook(cached)
-      setLoadError(false)
-      schedulePrefetch(currentId)
-      return () => {
-        cancelled = true
-      }
-    }
-
-    // 缓存未命中：异步加载
-    setLoadError(false)
-
-    getNotebook(currentId)
-      .then((nextNotebook) => {
-        if (!cancelled) {
-          setNotebook(nextNotebook)
-          setLoadError(false)
-          schedulePrefetch(currentId)
-        }
-      })
-      .catch((error) => {
-        console.error(`Failed to load notebook ${currentId}`, error)
-        if (!cancelled) {
-          setNotebook(null)
-          setLoadError(true)
-        }
-      })
-    return () => {
-      cancelled = true
-    }
-  }, [currentId, schedulePrefetch])
-
-  // URL hash 路由同步
-  useEffect(() => {
-    const syncFromHash = () => {
-      const requestedId = getInitialNotebookId()
-      const nextId = resolveNotebookId(requestedId, getCatalog())
-      if (nextId === NOTES_SENTINEL) return
-      setCurrentId((prev) => {
-        if (prev === nextId) return prev
-        return nextId
-      })
-      const needsCanonicalHash = nextId && window.location.hash !== `#${nextId}`
-      if (requestedId !== nextId || needsCanonicalHash) {
-        replaceUrlWithHash(nextId)
-      }
-    }
-
-    window.addEventListener('hashchange', syncFromHash)
-    window.addEventListener('popstate', syncFromHash)
-    syncFromHash()
-    return () => {
-      window.removeEventListener('hashchange', syncFromHash)
-      window.removeEventListener('popstate', syncFromHash)
-    }
-  }, [])
-
-  // 选中 notebook
-  const handleSelect = useCallback(
-    (id) => {
-      flushSync(() => setCurrentId(id))
-      replaceUrlWithHash(id)
-      if (window.innerWidth < 768) {
-        setSidebarOpen(false)
-      }
-    },
-    [],
-  )
-
-  // 返回首页
-  const handleHome = useCallback(() => {
-    flushSync(() => setCurrentId(null))
-    replaceUrlWithHash(null)
-    if (window.innerWidth < 768) {
-      setSidebarOpen(false)
-    }
-  }, [])
-
-  // 打开笔记面板
-  const handleOpenNotes = useCallback(() => {
-    flushSync(() => setCurrentId(NOTES_SENTINEL))
-    replaceUrlWithHash(null)
-    if (window.innerWidth < 768) {
-      setSidebarOpen(false)
-    }
-  }, [])
-
-  // 打开设置面板
-  const handleOpenSettings = useCallback(() => {
-    setSettingsOpen(true)
-  }, [])
-
-  // 当前 notebook 的 meta
-  const currentMeta = catalog.find((n) => n.id === currentId)
-
-  return (
-    <div className="h-screen flex overflow-hidden bg-[var(--bg-app)] text-[var(--text-body)] font-sans antialiased">
-      {/* 侧边栏展开按钮（侧边栏关闭时显示） */}
-      {!sidebarOpen && (
-        <button
-          onClick={() => setSidebarOpen(true)}
-          className="sidebar-toggle-btn"
-          aria-label="展开左侧栏"
-          title="展开左侧栏"
-        >
-          <PanelLeftOpen className="w-5 h-5" />
-        </button>
-      )}
-
-      {/* 移动端侧边栏遮罩 */}
-      {sidebarOpen && (
-        <div
-          className="md:hidden fixed inset-0 z-20 bg-black/20 backdrop-blur-sm"
-          onClick={() => setSidebarOpen(false)}
-        />
-      )}
-
-      {/* 侧边栏 */}
-      <Sidebar
-        catalog={catalog}
-        currentId={currentId}
-        onSelect={handleSelect}
-        onHome={handleHome}
-        onOpenNotes={handleOpenNotes}
-        onOpenSettings={handleOpenSettings}
-        bookmarks={nbm.bookmarks}
-        notes={nbm.notes}
-        notebooksWithNotes={nbm.notebooksWithNotes}
-        isOpen={sidebarOpen}
-        onClose={() => setSidebarOpen(false)}
-      />
-
-      {/* 主内容区 */}
-      <main className="flex-1 flex flex-col h-screen min-w-0 overflow-y-auto">
-        {currentId === NOTES_SENTINEL ? (
-          <NotesPanel
-            catalog={catalog}
-            bookmarks={nbm.bookmarks}
-            notes={nbm.notes}
-            notebooksWithNotes={nbm.notebooksWithNotes}
-            getSectionNotes={nbm.getSectionNotes}
-            exportData={nbm.exportData}
-            importFile={nbm.importFile}
-            onClearAll={nbm.clearAll}
-            onSelect={handleSelect}
-          />
-        ) : currentId ? (
-          <NotebookViewer
-            notebook={notebook}
-            meta={currentMeta}
-            loadError={loadError}
-            onRetry={() => window.location.reload()}
-            isBookmarked={nbm.isBookmarked}
-            toggleBookmark={nbm.toggleBookmark}
-            notes={nbm.notes}
-            saveNote={nbm.saveNote}
-            deleteNote={nbm.deleteNote}
-            updateNoteSection={nbm.updateNoteSection}
-            onImageClick={openSrc}
-          />
-        ) : (
-          <Welcome
-            catalog={catalog}
-            onSelect={handleSelect}
-          />
-        )}
-      </main>
-
-      {/* 设置面板 */}
-      <SettingsPanel
-        isOpen={settingsOpen}
-        onClose={() => setSettingsOpen(false)}
-      />
-
-      {/* 图片灯箱 */}
-      {imagePreview && (
-        <ImageLightbox
-          src={imagePreview.src}
-          alt={imagePreview.alt}
-          onClose={closeImagePreview}
-        />
-      )}
-    </div>
-  )
-}
+﻿import { useState, useEffect, useCallback } from 'react'
+import Sidebar from './components/Sidebar'
+import NotebookViewer from './components/NotebookViewer'
+import Welcome from './components/Welcome'
+import { getNotebook, getFirstNotebook, getCatalog, loadNotebookContent } from './data/notebooks'
+import { Menu, Moon, Sun, Type, StickyNote, X, ChevronLeft, Loader2 } from 'lucide-react'
 
 export default function App() {
-  const { settings, updateSettings } = useSettings()
-  const { resolvedTheme, toggleTheme } = useTheme(settings.theme)
+  const [activeId, setActiveId] = useState(null)
+  const [activeContent, setActiveContent] = useState(null)
+  const [loading, setLoading] = useState(false)
+  const [sidebarOpen, setSidebarOpen] = useState(false)
+  const [theme, setTheme] = useState(() => localStorage.getItem('theme') || 'light')
+  const [fontSize, setFontSize] = useState(() => parseInt(localStorage.getItem('fontSize') || '15'))
+  const [notesOpen, setNotesOpen] = useState(false)
+  const [notes, setNotes] = useState(() => JSON.parse(localStorage.getItem('cv-notes') || '{}'))
+  const [bookmarks, setBookmarks] = useState(() => JSON.parse(localStorage.getItem('cv-bookmarks') || '[]'))
+
+  useEffect(() => {
+    document.documentElement.setAttribute('data-theme', theme)
+    localStorage.setItem('theme', theme)
+  }, [theme])
+
+  useEffect(() => {
+    document.documentElement.style.setProperty('--nb-font-size', `${fontSize}px`)
+    localStorage.setItem('fontSize', fontSize.toString())
+  }, [fontSize, activeId])
+
+  useEffect(() => {
+    if (window.katex) return
+    const script = document.createElement('script')
+    script.src = 'https://cdn.jsdelivr.net/npm/katex@0.17.0/dist/katex.min.js'
+    script.async = true
+    document.head.appendChild(script)
+  }, [])
+
+  // Load notebook content when activeId changes
+  useEffect(() => {
+    if (!activeId) {
+      setActiveContent(null)
+      return
+    }
+    let cancelled = false
+    setLoading(true)
+    setActiveContent(null)
+    loadNotebookContent(activeId).then((content) => {
+      if (!cancelled) {
+        setActiveContent(content)
+        setLoading(false)
+      }
+    }).catch((e) => {
+      console.error('Failed to load notebook:', e)
+      setLoading(false)
+    })
+    return () => { cancelled = true }
+  }, [activeId])
+
+  useEffect(() => {
+    const handleHash = () => {
+      const hash = window.location.hash.slice(1)
+      if (!hash || hash === '/') {
+        setActiveId(null)
+      } else {
+        const id = hash.replace(/^\//, '')
+        const nb = getNotebook(id)
+        if (nb) {
+          setActiveId(id)
+        } else {
+          const catalog = getCatalog()
+          const match = catalog.find((c) => c.id.includes(id) || id.includes(c.id))
+          if (match) setActiveId(match.id)
+        }
+      }
+    }
+    handleHash()
+    window.addEventListener('hashchange', handleHash)
+    return () => window.removeEventListener('hashchange', handleHash)
+  }, [])
+
+  const handleSelect = useCallback((id) => {
+    if (id === null) {
+      window.location.hash = '/'
+      setActiveId(null)
+    } else {
+      window.location.hash = `/${id}`
+      setActiveId(id)
+    }
+    setSidebarOpen(false)
+  }, [])
+
+  const handleStart = useCallback((part, chapterNum) => {
+    const catalog = getCatalog()
+    const match = catalog.find((c) => c.chapterOrder === chapterNum && !c.filename.includes('extra'))
+    if (match) {
+      handleSelect(match.id)
+    } else {
+      const first = getFirstNotebook()
+      if (first) handleSelect(first.id)
+    }
+  }, [handleSelect])
+
+  const activeNotebook = activeId ? getNotebook(activeId) : null
+
+  const saveNote = (notebookId, text) => {
+    const newNotes = { ...notes, [notebookId]: text }
+    setNotes(newNotes)
+    localStorage.setItem('cv-notes', JSON.stringify(newNotes))
+  }
+
+  const toggleBookmark = (notebookId) => {
+    const newBookmarks = bookmarks.includes(notebookId)
+      ? bookmarks.filter((b) => b !== notebookId)
+      : [...bookmarks, notebookId]
+    setBookmarks(newBookmarks)
+    localStorage.setItem('cv-bookmarks', JSON.stringify(newBookmarks))
+  }
+
+  const cycleFontSize = () => {
+    const sizes = [13, 14, 15, 16, 17, 18]
+    const currentIdx = sizes.indexOf(fontSize)
+    const nextIdx = (currentIdx + 1) % sizes.length
+    setFontSize(sizes[nextIdx])
+  }
 
   return (
-    <SettingsProvider
-      settings={settings}
-      updateSettings={updateSettings}
-      resolvedTheme={resolvedTheme}
-      toggleTheme={toggleTheme}
-    >
-      <AppContent />
-    </SettingsProvider>
+    <div className="app-container">
+      <Sidebar
+        activeId={activeId}
+        onSelect={handleSelect}
+        isOpen={sidebarOpen}
+      />
+
+      <div className="main-content">
+        <div className="top-bar">
+          <div className="top-bar-left">
+            <button
+              className="icon-button mobile-menu-btn"
+              onClick={() => setSidebarOpen(!sidebarOpen)}
+            >
+              {sidebarOpen ? <X size={20} /> : <Menu size={20} />}
+            </button>
+            {activeNotebook && (
+              <>
+                <button
+                  className="icon-button"
+                  onClick={() => handleSelect(null)}
+                  title="返回首页"
+                >
+                  <ChevronLeft size={20} />
+                </button>
+                <span className="top-bar-title">{activeNotebook.title}</span>
+              </>
+            )}
+          </div>
+          <div className="top-bar-right">
+            {activeNotebook && (
+              <button
+                className={`icon-button ${bookmarks.includes(activeNotebook.id) ? 'active' : ''}`}
+                onClick={() => toggleBookmark(activeNotebook.id)}
+                title={bookmarks.includes(activeNotebook.id) ? '取消书签' : '添加书签'}
+              >
+                <StickyNote size={18} />
+              </button>
+            )}
+            <button
+              className="icon-button"
+              onClick={cycleFontSize}
+              title="调整字号"
+            >
+              <Type size={18} />
+            </button>
+            <button
+              className="icon-button"
+              onClick={() => setTheme(theme === 'light' ? 'dark' : 'light')}
+              title={theme === 'light' ? '深色模式' : '浅色模式'}
+            >
+              {theme === 'light' ? <Moon size={18} /> : <Sun size={18} />}
+            </button>
+          </div>
+        </div>
+
+        {activeNotebook ? (
+          loading ? (
+            <div className="loading-spinner">
+              <Loader2 size={24} className="animate-spin" />
+              <span className="loading-spinner-text">加载中...</span>
+            </div>
+          ) : activeContent ? (
+            <NotebookViewer
+              notebook={activeNotebook}
+              rawContent={activeContent}
+              onBack={() => handleSelect(null)}
+            />
+          ) : (
+            <div className="loading-spinner">
+              <span className="loading-spinner-text">无法加载 Notebook 内容</span>
+            </div>
+          )
+        ) : (
+          <Welcome onStart={handleStart} />
+        )}
+      </div>
+    </div>
   )
 }
