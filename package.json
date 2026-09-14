@@ -1,0 +1,12 @@
+{
+  "name": "hands-on-cv-site",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "cd web && npm run dev",
+    "build": "cd web && npm run build",
+    "preview": "cd web && npm run preview"
+  },
+  "description": "Hands-On Computer Vision - Interactive Learning Tutorial Site"
+}
