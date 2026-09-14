@@ -139,6 +139,9 @@ function inlineMarkdown(text, imageBase = '') {
     })
 
   let html = escapeHtml(protectedText)
+  // 支持 \* 与 \_ 转义（数学片段早已被替换成占位符，不受影响）：
+  // 先换成占位符，避免被下面的强调/斜体正则吃掉，最后再还原成字面字符。
+  html = html.replace(/\\([*_])/g, (m, ch) => (ch === '*' ? '\u0001ESC_AST\u0001' : '\u0001ESC_UND\u0001'))
   html = html.replace(/`([^`]+)`/g, '<code>$1</code>')
   html = html.replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>')
   html = html.replace(/\*([^*]+)\*/g, '<em>$1</em>')
@@ -172,6 +175,9 @@ function inlineMarkdown(text, imageBase = '') {
       html = html.replace(`@@MATH_${index}@@`, escapeHtml(segment))
     }
   })
+
+  // 还原转义字符为字面 * 与 _
+  html = html.replace(/\u0001ESC_AST\u0001/g, '*').replace(/\u0001ESC_UND\u0001/g, '_')
 
   return html
 }
