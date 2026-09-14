@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 import { useEffect, useState } from 'react'
 import {
   BookOpen, ArrowRight, Check, Layers, Cpu, Star,
@@ -540,82 +539,10 @@ export default function Welcome({ onSelectNotebook, language }) {
                     <Check className="w-2.5 h-2.5 sm:w-3 sm:h-3 stroke-[2.5]" />
                   </div>
                   <span className="truncate">{feature}</span>
-=======
-import { useMemo } from 'react'
-import { getCatalog, PARTS } from '../data/notebooks'
-import { PATH_STEPS, COURSE_REFERENCES } from '../data/sidebar'
-import { BookOpen, Code2, GraduationCap, ArrowRight, Layers, Box } from 'lucide-react'
-
-export default function Welcome({ onStart }) {
-  const catalog = useMemo(() => getCatalog(), [])
-  const notebookCount = catalog.length
-  const chapterCount = catalog.filter((c) => !c.filename.includes('extra')).length
-
-  const partOrder = ['part1-image-processing', 'part2-optimization-3d']
-
-  return (
-    <div className="welcome-container">
-      <div className="welcome-card">
-        <div className="welcome-icon">👁️</div>
-        <h1 className="welcome-title">计算机视觉基础</h1>
-        <p className="welcome-subtitle">从像素到三维——手写实现9大核心算法</p>
-
-        <div className="welcome-stats">
-          <div className="welcome-stat">
-            <div className="welcome-stat-num">{chapterCount}</div>
-            <div className="welcome-stat-label">章节</div>
-          </div>
-          <div className="welcome-stat">
-            <div className="welcome-stat-num">{notebookCount}</div>
-            <div className="welcome-stat-label">Notebook</div>
-          </div>
-          <div className="welcome-stat">
-            <div className="welcome-stat-num">2</div>
-            <div className="welcome-stat-label">模块</div>
-          </div>
-        </div>
-
-        <button className="welcome-start-btn" onClick={onStart}>
-          <BookOpen size={18} />
-          开始学习
-          <ArrowRight size={16} />
-        </button>
-      </div>
-
-      <div className="welcome-parts" style={{ maxWidth: '800px', width: '100%' }}>
-        {PATH_STEPS.map((part) => (
-          <div key={part.part} className="welcome-part">
-            <div className="welcome-part-title">
-              {part.part === 'part1-image-processing' ? <Layers size={18} /> : <Box size={18} />}
-              {part.title}
-            </div>
-            <div className="welcome-part-desc">{part.subtitle}</div>
-            <div style={{ marginTop: '12px' }}>
-              {part.chapters.map((ch) => (
-                <div
-                  key={ch.num}
-                  style={{
-                    display: 'flex',
-                    gap: '8px',
-                    padding: '6px 0',
-                    fontSize: '13px',
-                    color: 'var(--text-secondary)',
-                    cursor: 'pointer',
-                    borderBottom: '1px solid var(--border)',
-                  }}
-                  onClick={() => onStart(part.part, ch.num)}
-                >
-                  <span style={{ color: 'var(--accent)', fontWeight: 700, minWidth: '24px' }}>
-                    {ch.num}
-                  </span>
-                  <span style={{ fontWeight: 600 }}>{ch.title}</span>
-                  <span style={{ color: 'var(--text-tertiary)' }}>— {ch.topic}</span>
->>>>>>> e8dbc7c (add course homework with CS231A/CMU 16-385 actual assignments and GitHub solutions)
                 </div>
               ))}
             </div>
           </div>
-<<<<<<< HEAD
 
           {/* Right column: floating visual elements */}
           <div className="hidden lg:flex lg:col-span-5 relative min-h-[300px] items-center justify-center select-none">
@@ -830,46 +757,6 @@ export default function Welcome({ onStart }) {
         <span className="text-xs text-slate-400 tracking-wide italic">
           "Seeing is believing, but understanding is power."
         </span>
-=======
-        ))}
-      </div>
-
-      {/* Course References */}
-      <div style={{ maxWidth: '800px', width: '100%', marginTop: '24px' }}>
-        <h2 style={{ fontSize: '18px', fontWeight: 700, marginBottom: '16px', display: 'flex', alignItems: 'center', gap: '8px' }}>
-          <GraduationCap size={20} />
-          参考课程
-        </h2>
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(240px, 1fr))', gap: '12px' }}>
-          {Object.values(COURSE_REFERENCES).map((course) => (
-            <div
-              key={course.name}
-              style={{
-                background: 'var(--bg)',
-                border: '1px solid var(--border)',
-                borderRadius: 'var(--radius)',
-                padding: '16px',
-              }}
-            >
-              <div style={{ fontSize: '14px', fontWeight: 700, color: 'var(--accent)' }}>
-                {course.name}
-              </div>
-              <div style={{ fontSize: '12px', color: 'var(--text-secondary)', marginTop: '4px' }}>
-                {course.title}
-              </div>
-              <div style={{ fontSize: '11px', color: 'var(--text-tertiary)', marginTop: '8px', lineHeight: 1.5 }}>
-                涉及: {course.relevant.join('、')}
-              </div>
-            </div>
-          ))}
-        </div>
-      </div>
-
-      <div style={{ marginTop: '32px', fontSize: '12px', color: 'var(--text-tertiary)', textAlign: 'center', maxWidth: '600px' }}>
-        <Code2 size={14} style={{ display: 'inline', marginRight: '4px' }} />
-        所有算法核心代码均为手写实现，仅使用 OpenCV 进行图像读写和矩阵运算。
-        参考上海交通大学《动手学习计算机视觉》原始教学资料，对照斯坦福 CS231A、CMU 16-720、MIT 6.801 等课程内容。
->>>>>>> e8dbc7c (add course homework with CS231A/CMU 16-385 actual assignments and GitHub solutions)
       </div>
     </div>
   )
