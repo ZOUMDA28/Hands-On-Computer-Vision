@@ -4,10 +4,8 @@ dist
 *.log
 .env
 .env.local
-<<<<<<< HEAD
-docs
-=======
 .env.*.local
+docs
 
 # Conda
 conda-meta/
@@ -22,4 +20,5 @@ notebooks/**/Hands-on-CV/
 # Temp scripts
 check_nb.py
 check_all_nb.py
->>>>>>> e8dbc7c (add course homework with CS231A/CMU 16-385 actual assignments and GitHub solutions)
+check_hw.py
+check_hw_detail.py
