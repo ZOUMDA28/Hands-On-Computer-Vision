@@ -39,3 +39,5 @@ check_all_nb.py
 check_hw.py
 check_hw_detail.py
 ch2_exec.ipynb
+update_nb2.py
+read_nb.py
